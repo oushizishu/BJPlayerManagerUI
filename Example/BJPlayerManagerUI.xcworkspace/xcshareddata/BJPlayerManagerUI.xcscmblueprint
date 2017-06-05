@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "190CB42A3A07A5C906905F0DF973C6CC5E462114",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "190CB42A3A07A5C906905F0DF973C6CC5E462114" : 9223372036854775807,
+    "C2FAE19F877522D45B5C0C6FEC6A64668925C13F" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "3EA6493A-4B91-49F7-A88F-75C5922CC9DA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "190CB42A3A07A5C906905F0DF973C6CC5E462114" : "BJPlayerManagerUI\/",
+    "C2FAE19F877522D45B5C0C6FEC6A64668925C13F" : "BJPlayerManagerUI\/BJVideoPlayerUI\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "BJPlayerManagerUI",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Example\/BJPlayerManagerUI.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git.baijiahulian.com:BaijiaCloud-iOS\/BJPlayerManagerUI.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "190CB42A3A07A5C906905F0DF973C6CC5E462114"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git.baijiahulian.com:BaijiaCloud-iOS\/BJVideoPlayerUI.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C2FAE19F877522D45B5C0C6FEC6A64668925C13F"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/baijia/specs.git'
+
+#use_frameworks!
+
+target 'BJPlayerManagerUI_Example' do
+  pod 'BJPlayerManagerUI', :path => '../'
+
+  target 'BJPlayerManagerUI_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
