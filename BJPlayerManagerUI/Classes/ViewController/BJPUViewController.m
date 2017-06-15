@@ -18,7 +18,6 @@
 @property (strong, nonatomic) BJPUFullViewController *fullVC;
 @property (strong, nonatomic) BJPlayerManager *playerManager;
 
-@property (assign, nonatomic) BJPUScreenType screenType;
 @property (assign, nonatomic) BOOL isNavigationBarHidden;
 @property (strong, nonatomic) NSTimer *updateDurationTimer;
 
@@ -98,10 +97,13 @@
     [self.smallVC updatePlayState:playerManager.playState];
     [self.fullVC updatePlayState:playerManager.playState];
     
-    if (playerManager.playState == PMPlayStatePlaying) {
-        self.updateDurationTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self
-                                                                  selector:@selector(updatePlayTime)
-                                                                  userInfo:nil repeats:true];
+    if (playerManager.playState == PMPlayStatePlaying
+        && playerManager.player.runingPlayer == PKMovieNormalPlayer) {
+        if (!self.updateDurationTimer || ![self.updateDurationTimer isValid]) {
+            self.updateDurationTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self
+                                                                      selector:@selector(updatePlayTime)
+                                                                      userInfo:nil repeats:true];
+        }
     }
     else {
         [self.updateDurationTimer invalidate];

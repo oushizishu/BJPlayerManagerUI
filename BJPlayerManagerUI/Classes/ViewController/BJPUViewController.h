@@ -12,6 +12,7 @@
 @interface BJPUViewController : UIViewController
 
 @property (assign, nonatomic) CGRect smallScreenFrame;
+@property (assign, nonatomic) BJPUScreenType screenType;
 
 - (void)playWithVid:(NSString *)vid token:(NSString *)token;
 

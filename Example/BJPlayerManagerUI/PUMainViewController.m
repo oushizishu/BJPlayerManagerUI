@@ -9,6 +9,7 @@
 #import "PUMainViewController.h"
 #import <BJPlayerManagerUI/BJPlayerManagerUI.h>
 #import <BJPlayerManagerUI/BJPUMacro.h>
+#import <Masonry/Masonry.h>
 #import "PUPlayViewController.h"
 
 @interface PUMainViewController ()
@@ -26,6 +27,7 @@
     [self.view addSubview:self.vidTextField];
     [self.view addSubview:self.tokenTextField];
     [self.view addSubview:self.playButton];
+    [self makeConstraints];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,7 +58,7 @@
 - (UITextField *)vidTextField
 {
     if(!_vidTextField) {
-        _vidTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, 120, BJPUScreenWidth - 40, 30)];
+        _vidTextField = [[UITextField alloc] init];
         _vidTextField.placeholder = @"vid";
         _vidTextField.text = @"6675459";
         _vidTextField.layer.borderColor = [UIColor grayColor].CGColor;
@@ -69,7 +71,7 @@
 - (UITextField *)tokenTextField
 {
     if(!_tokenTextField) {
-        _tokenTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, 180, BJPUScreenWidth - 40, 30)];
+        _tokenTextField = [[UITextField alloc] init];
         _tokenTextField.placeholder = @"token";
         _tokenTextField.text = @"_bxXjD0HrF43S3PxCaNttR0QDPLIrj5HHFoJA-fpZQuqnE4eIe0_Hg";
         _tokenTextField.layer.borderColor = [UIColor grayColor].CGColor;
@@ -83,7 +85,7 @@
 - (UIButton *)playButton
 {
     if (!_playButton) {
-        _playButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 240, BJPUScreenWidth-40, 30)];
+        _playButton = [[UIButton alloc] init];
         _playButton.backgroundColor = [UIColor redColor];
         _playButton.layer.cornerRadius = 5.f;
         [_playButton setTitle:@"播放" forState:UIControlStateNormal];
@@ -92,5 +94,26 @@
         [_playButton addTarget:self action:@selector(entryPlayControl) forControlEvents:UIControlEventTouchUpInside];
     }
     return _playButton;
+}
+
+- (void)makeConstraints {
+    [self.vidTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@30);
+        make.left.equalTo(self.view).offset(30);
+        make.right.equalTo(self.view).offset(-30);
+        make.top.equalTo(self.view).offset(100);
+    }];
+    
+    [self.tokenTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@30);
+        make.left.right.equalTo(self.vidTextField);
+        make.top.equalTo(self.vidTextField.mas_bottom).offset(30);
+    }];
+    
+    [self.playButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@30);
+        make.left.right.equalTo(self.vidTextField);
+        make.top.equalTo(self.tokenTextField.mas_bottom).offset(30);
+    }];
 }
 @end

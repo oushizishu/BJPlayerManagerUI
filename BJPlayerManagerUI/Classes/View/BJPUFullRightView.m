@@ -60,17 +60,18 @@
     }
     return _definitionButton;
 }
-- (UIButton *)lessonButton
-{
-    if (!_lessonButton)
-    {
-        _lessonButton = [[UIButton alloc] init];
-        [_lessonButton setTitle:@"选集" forState:UIControlStateNormal];
-        [_lessonButton setTitleColor:[BJPUTheme defaultTextColor] forState:UIControlStateNormal];
-        [_lessonButton.titleLabel setFont:[UIFont systemFontOfSize:14]];
-    }
-    return _lessonButton;
-}
+
+//- (UIButton *)lessonButton
+//{
+//    if (!_lessonButton)
+//    {
+//        _lessonButton = [[UIButton alloc] init];
+//        [_lessonButton setTitle:@"选集" forState:UIControlStateNormal];
+//        [_lessonButton setTitleColor:[BJPUTheme defaultTextColor] forState:UIControlStateNormal];
+//        [_lessonButton.titleLabel setFont:[UIFont systemFontOfSize:14]];
+//    }
+//    return _lessonButton;
+//}
 
 
 @end
