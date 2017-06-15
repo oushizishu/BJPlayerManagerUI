@@ -29,22 +29,11 @@ NS_ASSUME_NONNULL_BEGIN
  播放本地视频
 
  @param path 本地视频路径
- @param startVideo 片头地址
- @param endVideo 片尾地址
- @param definitionKey 需传low, high, sueprHD, 否则返回"未知清晰度"
+ @param definition 需传low, high, sueprHD, 否则返回"未知清晰度"
  */
 - (void)setVideoPath:(NSString *)path
-          startVideo:(nullable NSString *)startVideo
-            endVideo:(nullable NSString *)endVideo
           definition:(PMVideoDefinitionType)definition;
 
-
-/**
- 设置播放ID 需要先设置partnerId
- @param vid 视频Id
- @param sid 选集Id, 没有则传0
- */
-- (void)setVideoID:(NSString *)vid sectionID:(NSString *)sid;
 
 /**
  设置播放ID
@@ -188,8 +177,6 @@ NS_ASSUME_NONNULL_BEGIN
  @param dt DT_LOW, DT_HIGH, DT_SUPPERHD
  */
 - (void)changeDefinition:(PMVideoDefinitionType)dt;
-
-- (void)playVideoById:(NSInteger)vid PM_Will_DEPRECATED("");
 
 @end
 

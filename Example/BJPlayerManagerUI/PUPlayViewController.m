@@ -9,22 +9,25 @@
 #import "PUPlayViewController.h"
 #import <BJPlayerManagerUI/BJPlayerManagerUI.h>
 #import <BJPlayerManagerUI/BJPUMacro.h>
+#import <BJPlayerManagerCore/BJPlayerManagerCore.h>
 
 @interface PUPlayViewController ()
 @property (strong, nonatomic) NSString *vid;
 @property (strong, nonatomic) NSString *token;
+@property (assign, nonatomic) BOOL isNeedAD;
 
 @property (strong, nonatomic) BJPUViewController *playerUIVC;
 @end
 
 @implementation PUPlayViewController
 
-- (instancetype)initWithVid:(NSString *)vid token:(NSString *)token
+- (instancetype)initWithVid:(NSString *)vid token:(NSString *)token isNeedAD:(BOOL)isNeedAD
 {
     self = [super init];
     if (self) {
         _vid = vid;
         _token = token;
+        _isNeedAD = isNeedAD;
     }
     return self;
 }
@@ -34,6 +37,7 @@
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = [UIColor whiteColor];
+    [PMAppConfig sharedInstance].isNeedAD = self.isNeedAD;
     self.playerUIVC = [[BJPUViewController alloc] init];
     [self.playerUIVC setSmallScreenFrame:CGRectMake(0, 64, BJPUScreenWidth, BJPUScreenWidth*9/16)];
     [self.view addSubview:self.playerUIVC.view];

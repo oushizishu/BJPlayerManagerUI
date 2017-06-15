@@ -16,6 +16,10 @@
 @property (strong, nonatomic) UITextField *vidTextField;
 @property (strong, nonatomic) UITextField *tokenTextField;
 @property (strong, nonatomic) UIButton *playButton;
+@property (strong, nonatomic) UILabel *adLabel;
+//yes: 有片头片尾,另外还需要后台配置url才会有片头片尾, 如果没有配置, 就算adSwitch.on = yes, 也没有片头片尾
+//no: 没有广告
+@property (strong, nonatomic) UISwitch *adSwitch;
 @end
 
 @implementation PUMainViewController
@@ -26,6 +30,8 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.vidTextField];
     [self.view addSubview:self.tokenTextField];
+    [self.view addSubview:self.adLabel];
+    [self.view addSubview:self.adSwitch];
     [self.view addSubview:self.playButton];
     [self makeConstraints];
 }
@@ -49,7 +55,8 @@
 {
     NSString *vid = self.vidTextField.text;
     NSString *token = self.tokenTextField.text;
-    PUPlayViewController *playerVC = [[PUPlayViewController alloc] initWithVid:vid token:token];
+    BOOL isNeedAD = self.adSwitch.on;
+    PUPlayViewController *playerVC = [[PUPlayViewController alloc] initWithVid:vid token:token isNeedAD:isNeedAD];
     [self.navigationController pushViewController:playerVC animated:YES];
 }
 
@@ -81,6 +88,22 @@
     return _tokenTextField;
 }
 
+- (UILabel *)adLabel {
+    if (!_adLabel) {
+        _adLabel = [UILabel new];
+        _adLabel.text = @"是否有片头片尾广告: ";
+        _adLabel.layer.borderColor = [UIColor blackColor].CGColor;
+        _adLabel.layer.borderWidth = 0.5;
+    }
+    return _adLabel;
+}
+
+- (UISwitch *)adSwitch {
+    if (!_adSwitch) {
+        _adSwitch = [[UISwitch alloc] init];
+    }
+    return _adSwitch;
+}
 
 - (UIButton *)playButton
 {
@@ -110,10 +133,22 @@
         make.top.equalTo(self.vidTextField.mas_bottom).offset(30);
     }];
     
+    [self.adLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.vidTextField);
+        make.height.equalTo(@30);
+        make.width.equalTo(@180);
+        make.top.equalTo(self.tokenTextField.mas_bottom).offset(30);
+    }];
+    
+    [self.adSwitch mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.adLabel.mas_right).offset(20);
+        make.top.bottom.equalTo(self.adLabel);
+    }];
+    
     [self.playButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@30);
         make.left.right.equalTo(self.vidTextField);
-        make.top.equalTo(self.tokenTextField.mas_bottom).offset(30);
+        make.top.equalTo(self.adLabel.mas_bottom).offset(30);
     }];
 }
 @end
