@@ -12,7 +12,6 @@
 
 @interface PUPlayViewController ()
 @property (strong, nonatomic) NSString *vid;
-@property (strong, nonatomic) NSString *type;
 @property (strong, nonatomic) NSString *token;
 
 @property (strong, nonatomic) BJPUViewController *playerUIVC;
@@ -20,12 +19,11 @@
 
 @implementation PUPlayViewController
 
-- (instancetype)initWithVid:(NSString *)vid type:(NSString *)type token:(NSString *)token
+- (instancetype)initWithVid:(NSString *)vid token:(NSString *)token
 {
     self = [super init];
     if (self) {
         _vid = vid;
-        _type = type;
         _token = token;
     }
     return self;
@@ -40,7 +38,7 @@
     [self.playerUIVC setSmallScreenFrame:CGRectMake(0, 64, BJPUScreenWidth, BJPUScreenWidth*9/16)];
     [self.view addSubview:self.playerUIVC.view];
     [self addChildViewController:self.playerUIVC];
-    [self.playerUIVC playWithVid:_vid type:_type token:_token];
+    [self.playerUIVC playWithVid:_vid token:_token];
 }
 
 - (void)didReceiveMemoryWarning {

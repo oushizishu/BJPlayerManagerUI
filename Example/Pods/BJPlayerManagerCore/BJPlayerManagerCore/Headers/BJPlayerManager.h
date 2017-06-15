@@ -50,21 +50,18 @@ NS_ASSUME_NONNULL_BEGIN
  设置播放ID
  
  @param vid 视频Id
- @param type 视频类型, mp4:1, m3u8:2, flv:3
  @param token 请求 url 的 token
  */
-- (void)setVideoID:(NSString *)vid type:(NSString *)type token:(NSString *)token;
+- (void)setVideoID:(NSString *)vid token:(NSString *)token;
 
 /**
  设置播放ID 获取视频相关信息
 
  @param vid 视频Id
- @param type 视频类型, mp4:1, m3u8:2, flv:3
  @param token 请求 url 的 token
  @param completion 回调信息  return是否自动播放
  */
 - (void)setVideoID:(NSString *)vid
-              type:(NSString *)type
              token:(NSString *)token
         completion:(BOOL(^)(PMVideoInfoModel *result, NSError *error))completion;
 /**
@@ -72,11 +69,9 @@ NS_ASSUME_NONNULL_BEGIN
  得到播放信息
  
  @param vid 视频Id
- @param type 视频类型, mp4:1, m3u8:2, flv:3
  @param token 请求 url 的 token
  */
 - (PMVideoInfoModel *)getVideoInfo:(NSString *)vid
-                              type:(NSString *)type
                              token:(NSString *)token;
 
 /**

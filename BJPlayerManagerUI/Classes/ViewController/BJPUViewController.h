@@ -13,6 +13,6 @@
 
 @property (assign, nonatomic) CGRect smallScreenFrame;
 
-- (void)playWithVid:(NSString *)vid type:(NSString *)type token:(NSString *)token;
+- (void)playWithVid:(NSString *)vid token:(NSString *)token;
 
 @end

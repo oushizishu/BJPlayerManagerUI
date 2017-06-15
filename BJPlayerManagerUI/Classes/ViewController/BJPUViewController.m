@@ -119,9 +119,9 @@
 }
 
 #pragma mark - public interface
-- (void)playWithVid:(NSString *)vid type:(NSString *)type token:(NSString *)token
+- (void)playWithVid:(NSString *)vid token:(NSString *)token
 {
-    [self.playerManager setVideoID:vid type:type token:token];
+    [self.playerManager setVideoID:vid token:token];
 }
 
 #pragma mark - BJPUViewControllerProtocol

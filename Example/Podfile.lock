@@ -14,7 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - BJPlayerManagerCore (0.2.12):
+  - BJPlayerManagerCore (0.2.13):
     - AFNetworking
     - BJVideoPlayer
     - LogStat
@@ -25,9 +25,9 @@ PODS:
     - Masonry
     - MBProgressHUD
   - BJVideoPlayer (0.0.19)
-  - FMDB (2.6.2):
-    - FMDB/standard (= 2.6.2)
-  - FMDB/standard (2.6.2)
+  - FMDB (2.7.2):
+    - FMDB/standard (= 2.7.2)
+  - FMDB/standard (2.7.2)
   - LKDBHelper (2.4.2):
     - FMDB
   - LogStat (0.6.6):
@@ -47,10 +47,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  BJPlayerManagerCore: 47c0c81502c1b5f27d8927f9fd0c9441bd21d9da
+  BJPlayerManagerCore: 68c591c0cf5a0cad3d61937eec5761ece43f9060
   BJPlayerManagerUI: 14962aa13e516a809bf6d58e9b5c4a78609ea474
   BJVideoPlayer: 44211a7e7113e787aa5f174ded3ffe5852e09c7e
-  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
   LKDBHelper: ab67373b32f47463bf5f838d730f225824f4492a
   LogStat: 62094776744429f4a84d2e850f7999bd04713036
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e

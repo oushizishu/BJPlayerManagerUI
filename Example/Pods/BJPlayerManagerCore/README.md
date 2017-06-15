@@ -15,17 +15,7 @@ end
 ```
 
 
-## 2、	设置环境
-可以设置项目环境，包括test、beta、www
-```
-#import "PMAppConfig.h"
-
-@property (nonatomic) PMDeployType deployType;
-
-```
-
-
-## 3、	创建播放器
+## 2、	创建播放器
 ```
 #import "PMPlayerViewController.h"
 self.player = [[BJPlayerManager alloc] init];
@@ -33,7 +23,7 @@ self.player.view.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH*9/16);
 [self.view addSubview:self.player.view];
 ```
 
-## 4、	播放
+## 3、	播放
 
 - 播放接口, 需要传入vid和token
 ```
@@ -85,7 +75,7 @@ self.player.view.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH*9/16);
 
 ```
 
-## 5、	播放和加载的通知
+## 4、	播放和加载的通知
 ```
 - 播放:
 监听PKMoviePlayerPlaybackStateDidChangeNotification来获取PKMoviePlayerController的playbackState
@@ -96,7 +86,7 @@ self.player.view.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH*9/16);
 ```
 
 
-## 6、	界面定制
+## 5、	界面定制
 
 ```
 #import "PMPlayerViewController.h"
