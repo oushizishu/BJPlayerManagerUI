@@ -1,0 +1,63 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - BJPlayerManagerCore (0.2.12):
+    - AFNetworking
+    - BJVideoPlayer
+    - LogStat
+    - Reachability
+    - YYModel
+  - BJPlayerManagerUI (0.1.0):
+    - BJPlayerManagerCore
+    - Masonry
+    - MBProgressHUD
+  - BJVideoPlayer (0.0.19)
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
+  - LKDBHelper (2.4.2):
+    - FMDB
+  - LogStat (0.6.6):
+    - AFNetworking
+    - LKDBHelper
+  - Masonry (1.0.2)
+  - MBProgressHUD (1.0.0)
+  - Reachability (3.2)
+  - YYModel (1.0.4)
+
+DEPENDENCIES:
+  - BJPlayerManagerUI (from `../`)
+
+EXTERNAL SOURCES:
+  BJPlayerManagerUI:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  BJPlayerManagerCore: 47c0c81502c1b5f27d8927f9fd0c9441bd21d9da
+  BJPlayerManagerUI: 14962aa13e516a809bf6d58e9b5c4a78609ea474
+  BJVideoPlayer: 44211a7e7113e787aa5f174ded3ffe5852e09c7e
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  LKDBHelper: ab67373b32f47463bf5f838d730f225824f4492a
+  LogStat: 62094776744429f4a84d2e850f7999bd04713036
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
+
+PODFILE CHECKSUM: 8163a1bae527909c59abe35f2d735fb5ff5d0c4a
+
+COCOAPODS: 1.2.1

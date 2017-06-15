@@ -1,0 +1,44 @@
+{
+  "name": "BJPlayerManagerUI",
+  "version": "0.1.0",
+  "summary": "BJPlayerManagerUI.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/baijia/BJPlayerManagerUI.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "辛亚鹏": "xinyapeng@baijiahulian.com"
+  },
+  "source": {
+    "git": "https://github.com/baijia/BJPlayerManagerUI.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "BJPlayerManagerUI/Classes/**/*",
+  "resource_bundles": {
+    "BJPlayerManagerUI": [
+      "BJPlayerManagerUI/Assets/*.png"
+    ]
+  },
+  "dependencies": {
+    "MBProgressHUD": [
+
+    ],
+    "Masonry": [
+
+    ],
+    "BJPlayerManagerCore": [
+
+    ]
+  },
+  "prefix_header_contents": [
+    "#import <Masonry/Masonry.h>",
+    "#import <MBProgressHUD/MBProgressHUD.h>",
+    "#import <Masonry/Masonry.h>",
+    "#import <BJPlayerManagerCore/BJPlayerManagerCore.h>"
+  ]
+}

@@ -61,7 +61,7 @@
     if(!_vidTextField) {
         _vidTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, 80, BJPUScreenWidth - 40, 30)];
         _vidTextField.placeholder = @"vid";
-        _vidTextField.text = @"127389";
+        _vidTextField.text = @"6675459";
         _vidTextField.layer.borderColor = [UIColor grayColor].CGColor;
         _vidTextField.layer.borderWidth = 0.5;
         _vidTextField.layer.cornerRadius = 5.f;
@@ -87,7 +87,7 @@
     if(!_tokenTextField) {
         _tokenTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, 160, BJPUScreenWidth - 40, 30)];
         _tokenTextField.placeholder = @"token";
-        _tokenTextField.text = @"test12345678";
+        _tokenTextField.text = @"_bxXjD0HrF43S3PxCaNttR0QDPLIrj5HHFoJA-fpZQuqnE4eIe0_Hg";
         _tokenTextField.layer.borderColor = [UIColor grayColor].CGColor;
         _tokenTextField.layer.borderWidth = 0.5;
         _tokenTextField.layer.cornerRadius = 5.f;

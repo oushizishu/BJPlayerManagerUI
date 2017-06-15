@@ -17,7 +17,7 @@
     if (self) {
         [self addSubview:self.rateButton];
         [self addSubview:self.definitionButton];
-        [self addSubview:self.lessonButton];
+//        [self addSubview:self.lessonButton];
         
         [self.definitionButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.centerY.offset(0);
@@ -29,11 +29,11 @@
             make.bottom.equalTo(self.definitionButton.mas_top).offset(-10.f);
             make.width.height.equalTo(self.definitionButton);
         }];
-        [self.lessonButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.definitionButton);
-            make.top.equalTo(self.definitionButton.mas_bottom).offset(10.f);
-            make.width.height.equalTo(self.definitionButton);
-        }];
+//        [self.lessonButton mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.centerX.equalTo(self.definitionButton);
+//            make.top.equalTo(self.definitionButton.mas_bottom).offset(10.f);
+//            make.width.height.equalTo(self.definitionButton);
+//        }];
     }
     return self;
 }
