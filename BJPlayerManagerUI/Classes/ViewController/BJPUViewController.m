@@ -84,9 +84,9 @@
         self.navigationController.navigationBarHidden = YES;
         self.screenType = BJPUScreenType_Full;
     }
-    else if (orientation == UIDeviceOrientationPortrait || orientation == UIDeviceOrientationPortraitUpsideDown) {
+    else if (orientation == UIDeviceOrientationPortrait) {
         NSLog(@"竖屏模式");
-        [self.navigationController setNavigationBarHidden:_isNavigationBarHidden];
+        [self.navigationController setNavigationBarHidden:NO];
         self.screenType = BJPUScreenType_Small;
     }
 }
