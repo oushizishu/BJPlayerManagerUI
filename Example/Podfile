@@ -6,6 +6,7 @@ source 'https://github.com/baijia/specs.git'
 
 target 'BJPlayerManagerUI_Example' do
   pod 'BJPlayerManagerUI', :path => '../'
+  pod 'MBProgressHUD'
 
   target 'BJPlayerManagerUI_Tests' do
     inherit! :search_paths

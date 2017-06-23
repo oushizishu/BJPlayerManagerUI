@@ -16,4 +16,6 @@
 
 - (void)playWithVid:(NSString *)vid token:(NSString *)token;
 
+- (void)playWithVideoPath:(NSString *)path definitionType:(NSInteger)definitionType;
+
 @end

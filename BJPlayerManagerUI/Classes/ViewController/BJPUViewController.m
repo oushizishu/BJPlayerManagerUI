@@ -126,6 +126,11 @@
     [self.playerManager setVideoID:vid token:token];
 }
 
+- (void)playWithVideoPath:(NSString *)path definitionType:(NSInteger)definitionType
+{
+    [self.playerManager setVideoPath:path definition:definitionType];
+}
+
 #pragma mark - BJPUViewControllerProtocol
 - (void)changeScreenType:(BJPUScreenType)type
 {

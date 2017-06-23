@@ -53,15 +53,17 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setVideoID:(NSString *)vid
              token:(NSString *)token
         completion:(BOOL(^)(PMVideoInfoModel *result, NSError *error))completion;
+
 /**
- 请使用videoInfoModel属性
- 得到播放信息
+ 获取指定vid的播放信息
  
  @param vid 视频Id
  @param token 请求 url 的 token
  */
-- (PMVideoInfoModel *)getVideoInfo:(NSString *)vid
-                             token:(NSString *)token;
+- (void)getVideoInfoWithVid:(NSString *)vid
+                      token:(NSString *)token
+                 completion:(void(^)(PMVideoInfoModel  * _Nullable videoInfo, NSError  * _Nullable error))completion;
+
 
 /**
  外部定制接口

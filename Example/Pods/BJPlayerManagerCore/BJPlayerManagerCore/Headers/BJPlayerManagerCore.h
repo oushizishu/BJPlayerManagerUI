@@ -13,6 +13,7 @@
 #import "BJPlayerManager.h"
 #import "PMPlayerMacro.h"
 #import "PMNotification.h"
+#import "BJDownloadManager.h"
 #import "NSError+BJPlayerError.h"
 
 

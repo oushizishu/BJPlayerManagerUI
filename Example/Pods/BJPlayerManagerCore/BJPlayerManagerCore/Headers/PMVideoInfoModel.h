@@ -10,11 +10,11 @@
 #import <YYModel/YYModel.h>
 #import "PMVideoSectionModel.h"
 
-typedef enum{
+typedef NS_ENUM(NSInteger, PMVideoDefinitionType){
     DT_LOW      = 0, //标清
     DT_HIGH     = 1, //高清
     DT_SUPPERHD = 2, //超清
-}PMVideoDefinitionType;
+};
 
 #pragma mark - PMVideoCDNInfoModel
 @interface PMVideoCDNInfoModel : NSObject <YYModel>

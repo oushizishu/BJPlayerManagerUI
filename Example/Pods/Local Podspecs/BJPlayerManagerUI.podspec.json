@@ -32,7 +32,7 @@
 
     ],
     "BJPlayerManagerCore": [
-
+      "~> 0.3.0"
     ]
   },
   "prefix_header_contents": [

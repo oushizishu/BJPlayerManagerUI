@@ -9,13 +9,19 @@
 #import "PUMainViewController.h"
 #import <BJPlayerManagerUI/BJPlayerManagerUI.h>
 #import <BJPlayerManagerUI/BJPUMacro.h>
+#import <BJPlayerManagerCore/BJPlayerManagerCore.h>
 #import <Masonry/Masonry.h>
 #import "PUPlayViewController.h"
+#import "PMDownloadViewController.h"
+
+#import "UIAlertView+bjp.h"
 
 @interface PUMainViewController ()
+@property (strong, nonatomic) UISegmentedControl *deploySegment;
 @property (strong, nonatomic) UITextField *vidTextField;
 @property (strong, nonatomic) UITextField *tokenTextField;
 @property (strong, nonatomic) UIButton *playButton;
+@property (strong, nonatomic) UIButton *downloadBtn;
 @property (strong, nonatomic) UILabel *adLabel;
 //yes: 有片头片尾,另外还需要后台配置url才会有片头片尾, 如果没有配置, 就算adSwitch.on = yes, 也没有片头片尾
 //no: 没有广告
@@ -28,11 +34,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
+#if DEBUG
+    /*
+     // GitHub上的代码不支持设置环境
+    [self.view addSubview:self.deploySegment];
+     */
+#else
+#endif
     [self.view addSubview:self.vidTextField];
     [self.view addSubview:self.tokenTextField];
     [self.view addSubview:self.adLabel];
     [self.view addSubview:self.adSwitch];
     [self.view addSubview:self.playButton];
+    [self.view addSubview:self.downloadBtn];
     [self makeConstraints];
 }
 
@@ -40,16 +54,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (void)entryPlayControl
 {
@@ -60,8 +64,48 @@
     [self.navigationController pushViewController:playerVC animated:YES];
 }
 
+- (void)downloadAction {
+    PMDownloadViewController *downloadVC = [PMDownloadViewController new];
+    [self.navigationController pushViewController:downloadVC animated:YES];
+}
+
+- (void)deployTypeChanged:(UISegmentedControl *)segment
+{
+#if DEBUG
+    switch (segment.selectedSegmentIndex) {
+        case 0:
+            [PMAppConfig sharedInstance].deployType = PMDeployType_test;
+            [self saveDeplayAndTipWithEnvType:0];
+            break;
+        case 1:
+            [PMAppConfig sharedInstance].deployType = PMDeployType_beta;
+            [self saveDeplayAndTipWithEnvType:1];
+            break;
+        case 2:
+            [PMAppConfig sharedInstance].deployType = PMDeployType_www;
+            [self saveDeplayAndTipWithEnvType:2];
+            break;
+        default:
+            break;
+    }
+#else
+#endif
+}
 
 #pragma mark - set get
+
+- (UISegmentedControl *)deploySegment
+{
+    if (!_deploySegment) {
+        _deploySegment = [[UISegmentedControl alloc] initWithItems:@[@"测试环境", @"Beta", @"线上"]];
+        _deploySegment.frame = CGRectMake(20, 100, ScreenWidth - 40, 30);
+        NSInteger index = [[NSUserDefaults standardUserDefaults] integerForKey:@"developType"];
+        _deploySegment.selectedSegmentIndex = index;
+        [self setDevelopType:index];
+        [_deploySegment addTarget:self action:@selector(deployTypeChanged:) forControlEvents:UIControlEventValueChanged];
+    }
+    return _deploySegment;
+}
 - (UITextField *)vidTextField
 {
     if(!_vidTextField) {
@@ -119,12 +163,26 @@
     return _playButton;
 }
 
+- (UIButton *)downloadBtn
+{
+    if (!_downloadBtn) {
+        _downloadBtn = [[UIButton alloc] init];
+        _downloadBtn.backgroundColor = [UIColor redColor];
+        _downloadBtn.layer.cornerRadius = 5.f;
+        [_downloadBtn setTitle:@"下载" forState:UIControlStateNormal];
+        [_downloadBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_downloadBtn.titleLabel setFont:[UIFont systemFontOfSize:15.f]];
+        [_downloadBtn addTarget:self action:@selector(downloadAction) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _downloadBtn;
+}
+
 - (void)makeConstraints {
     [self.vidTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@30);
         make.left.equalTo(self.view).offset(30);
         make.right.equalTo(self.view).offset(-30);
-        make.top.equalTo(self.view).offset(100);
+        make.top.equalTo(self.view).offset(150);
     }];
     
     [self.tokenTextField mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -150,5 +208,52 @@
         make.left.right.equalTo(self.vidTextField);
         make.top.equalTo(self.adLabel.mas_bottom).offset(30);
     }];
+    
+    [self.downloadBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@30);
+        make.left.right.equalTo(self.vidTextField);
+        make.top.equalTo(self.playButton.mas_bottom).offset(30);
+    }];
 }
+
+#pragma MARK - 切换环境
+- (void)saveDeplayAndTipWithEnvType:(PMDeployType)type {
+    [self saveDeplay:type];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"切换成功" message:@"必须重新启动app设置才生效" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"退出程序", nil];
+    [alert showAlertViewWithCompleteBlock:^(NSInteger buttonIndex) {
+        abort();
+    }];
+}
+
+- (void)saveDeplay:(PMDeployType)type {
+    [[NSUserDefaults standardUserDefaults] setInteger:type forKey:@"developType"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)setDevelopType:(NSInteger)type {
+    
+#if DEBUG
+    // guthub上的代码不支持设置环境
+    /*
+    switch (type) {
+        case 0:
+            [PMAppConfig sharedInstance].deployType = PMDeployType_test;
+            break;
+            
+        case 1:
+            [PMAppConfig sharedInstance].deployType = PMDeployType_beta;
+            break;
+            
+        case 2:
+            [PMAppConfig sharedInstance].deployType = PMDeployType_www;
+            break;
+            
+        default:
+            break;
+    }
+     */
+#else
+#endif
+}
+
 @end

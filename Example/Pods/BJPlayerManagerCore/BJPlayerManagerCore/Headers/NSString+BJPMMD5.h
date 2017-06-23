@@ -10,6 +10,8 @@
 
 @interface NSString (BJPMMD5)
 
+@property (readonly) NSString *md5String;
+
 - (NSString *) BJPM_stringFromMD5;
 
 @end
