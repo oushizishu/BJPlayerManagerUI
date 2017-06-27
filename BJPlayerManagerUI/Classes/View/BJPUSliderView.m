@@ -78,11 +78,25 @@ typedef NS_ENUM(NSInteger, BJPUSliderType)
             self.seekView.hidden = NO;
         }
         else if (self.touchMoveType == BJPUSliderType_Light) {
-            [[UIScreen mainScreen] setBrightness:self.originBrightness-diffY/100];
+            CGFloat brightness = self.originBrightness-diffY/100;
+            if (brightness >= 1.0) {
+                brightness = 1.0;
+            }
+            else if (brightness <= 0.0) {
+                brightness = 0.1;
+            }
+            [[UIScreen mainScreen] setBrightness:brightness];
             NSLog(@"调节亮度为:%f", self.originBrightness-diffY/100);
         }
         else if (self.touchMoveType == BJPUSliderType_Volume) {
-            [self volumeSlider].value = self.originVolume-diffY/100;
+            CGFloat value = self.originVolume-diffY/100;
+            if (value >= 1.0) {
+                value = 1.0;
+            }
+            else if (value <= 0.0) {
+                value = 0.1;
+            }
+            [self volumeSlider].value = value;
             NSLog(@"调节音量为:%f", self.originVolume-diffY/100);
         }
     }
@@ -128,14 +142,14 @@ typedef NS_ENUM(NSInteger, BJPUSliderType)
             if (self.touchBeganPoint.x < (self.bounds.size.width / 2)) { //调亮度
                 self.touchMoveType = BJPUSliderType_Light;
                 self.originBrightness = [UIScreen mainScreen].brightness;
-                UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
-                //MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:keyWindow animated:YES];
-                MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:keyWindow];
-                hud.mode = MBProgressHUDModeCustomView;
-                hud.customView = [[BJPUSliderLightView alloc] init];
-                hud.removeFromSuperViewOnHide = NO;
-                [keyWindow addSubview:hud];
-                [hud show:true];
+//                UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+//                //MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:keyWindow animated:YES];
+//                MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:keyWindow];
+//                hud.mode = MBProgressHUDModeCustomView;
+//                hud.customView = [[BJPUSliderLightView alloc] init];
+//                hud.removeFromSuperViewOnHide = NO;
+//                [keyWindow addSubview:hud];
+//                [hud show:true];
             }
             else {
                 self.touchMoveType = BJPUSliderType_Volume;
