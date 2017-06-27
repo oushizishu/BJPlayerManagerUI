@@ -83,18 +83,18 @@ typedef NS_ENUM(NSInteger, BJPUSliderType)
                 brightness = 1.0;
             }
             else if (brightness <= 0.0) {
-                brightness = 0.1;
+                brightness = 0;
             }
             [[UIScreen mainScreen] setBrightness:brightness];
             NSLog(@"调节亮度为:%f", self.originBrightness-diffY/100);
         }
         else if (self.touchMoveType == BJPUSliderType_Volume) {
-            CGFloat value = self.originVolume-diffY/100;
+            CGFloat value = self.originBrightness-diffY/100;
             if (value >= 1.0) {
                 value = 1.0;
             }
             else if (value <= 0.0) {
-                value = 0.1;
+                value = 0;
             }
             [self volumeSlider].value = value;
             NSLog(@"调节音量为:%f", self.originVolume-diffY/100);
@@ -114,7 +114,9 @@ typedef NS_ENUM(NSInteger, BJPUSliderType)
         }
     }
     self.seekView.hidden = YES;
-    //self.lightView.hidden = YES;
+    [UIView animateWithDuration:3 animations:^{
+        self.lightView.alpha = 0.0f;
+    }];
     UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
     [MBProgressHUD hideHUDForView:keyWindow animated:YES];
 }
@@ -122,7 +124,10 @@ typedef NS_ENUM(NSInteger, BJPUSliderType)
 {
     NSLog(@"touchesCancel");
     self.seekView.hidden = YES;
-    //self.lightView.hidden = YES;
+    [UIView animateWithDuration:3 animations:^{
+        self.lightView.alpha = 0.0f;
+    }];
+
     UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
     [MBProgressHUD hideHUDForView:keyWindow animated:YES];
 }
@@ -142,14 +147,13 @@ typedef NS_ENUM(NSInteger, BJPUSliderType)
             if (self.touchBeganPoint.x < (self.bounds.size.width / 2)) { //调亮度
                 self.touchMoveType = BJPUSliderType_Light;
                 self.originBrightness = [UIScreen mainScreen].brightness;
-//                UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
-//                //MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:keyWindow animated:YES];
-//                MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:keyWindow];
-//                hud.mode = MBProgressHUDModeCustomView;
-//                hud.customView = [[BJPUSliderLightView alloc] init];
-//                hud.removeFromSuperViewOnHide = NO;
-//                [keyWindow addSubview:hud];
-//                [hud show:true];
+                UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+                self.lightView.alpha = 1.0f;
+                [keyWindow insertSubview:self.lightView aboveSubview:self];
+                [self.lightView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.height.width.equalTo(@155);
+                    make.centerY.centerX.equalTo(keyWindow);
+                }];
             }
             else {
                 self.touchMoveType = BJPUSliderType_Volume;
@@ -224,7 +228,7 @@ typedef NS_ENUM(NSInteger, BJPUSliderType)
 @implementation BJPUSliderLightView
 - (instancetype)init
 {
-    return [self initWithFrame:CGRectMake(0, 0, 85, 85)];
+    return [self initWithFrame:CGRectMake(0, 0, 155, 155)];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -232,7 +236,6 @@ typedef NS_ENUM(NSInteger, BJPUSliderType)
     self = [super initWithFrame:frame];
     if (self) {
         [self setupSubviews];
-        
         [[UIScreen mainScreen] addObserver:self forKeyPath:@"brightness" options:NSKeyValueObservingOptionNew context:nil];
     }
     return self;
@@ -245,21 +248,33 @@ typedef NS_ENUM(NSInteger, BJPUSliderType)
 
 - (void)setupSubviews
 {
+    self.layer.cornerRadius  = 10;
+    self.layer.masksToBounds = YES;
+    self.backgroundColor = [UIColor grayColor];
+    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:self.bounds];
+    toolbar.backgroundColor = [UIColor darkGrayColor];
+    toolbar.alpha = 0.97;
+    [self addSubview:toolbar];
     [self addSubview:self.titleLabel];
     [self addSubview:self.lightView];
     [self addSubview:self.progressView];
     [self.progressView addSubview:self.coverView];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.offset(0);
-        make.top.offset(0);
+        make.height.equalTo(@30);
+        make.top.offset(5);
+        make.width.equalTo(self);
     }];
     [self.lightView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.offset(0);
-        make.top.mas_equalTo(self.titleLabel.mas_bottom).offset(10.f);
+        make.centerX.centerY.offset(0);
+        make.height.width.equalTo(@70);
     }];
     [self.progressView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.offset(0);
-        make.top.mas_equalTo(self.lightView.mas_bottom).offset(10.f);
+//        make.top.mas_equalTo(self.lightView.mas_bottom).offset(10.f);
+        make.bottom.offset(-15.f);
+        make.height.equalTo(@7);
+        make.left.offset(13.f);
     }];
 }
 
@@ -281,9 +296,10 @@ typedef NS_ENUM(NSInteger, BJPUSliderType)
 {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel.font = [UIFont systemFontOfSize:14.f];
-        _titleLabel.textColor = [UIColor bjpu_colorWithHexString:@"333333"];
+        _titleLabel.font = [UIFont boldSystemFontOfSize:16.f];
+        _titleLabel.textColor = [UIColor colorWithRed:0.25f green:0.22f blue:0.21f alpha:1.00f];
         _titleLabel.text = @"亮度";
+        _titleLabel.textAlignment = NSTextAlignmentCenter;
     }
     return _titleLabel;
 }
