@@ -1,5 +1,7 @@
 # BJPlayerManagerUI
 
+**详情请访问百家云技术文档[iOS点播UI SDK](http://dev.baijiacloud.com/default/wiki/detail/18)**
+
 [![CI Status](http://img.shields.io/travis/oushizishu/BJPlayerManagerUI.svg?style=flat)](https://travis-ci.org/oushizishu/BJPlayerManagerUI)
 [![Version](https://img.shields.io/cocoapods/v/BJPlayerManagerUI.svg?style=flat)](http://cocoapods.org/pods/BJPlayerManagerUI)
 [![License](https://img.shields.io/cocoapods/l/BJPlayerManagerUI.svg?style=flat)](http://cocoapods.org/pods/BJPlayerManagerUI)
