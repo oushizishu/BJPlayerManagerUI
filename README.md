@@ -15,6 +15,8 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
+![亮度.png](http://imgs.genshuixue.com/0baijiatools/9e4abacf6659e72cdf755e3531f2d615/brightness.jpeg)
+
 ## Installation
 
 BJPlayerManagerUI is available through [CocoaPods](http://cocoapods.org). To install
