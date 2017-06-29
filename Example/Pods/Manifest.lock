@@ -14,7 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - BJPlayerManagerCore (0.3.2):
+  - BJPlayerManagerCore (0.3.3):
     - AFNetworking
     - BJVideoPlayer
     - LogStat
@@ -50,7 +50,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  BJPlayerManagerCore: d25b6816daf4e734dd471b7fc63fd5074ed79636
+  BJPlayerManagerCore: ffd8bdd51804a6ae95b8269ea37502e6d0eeeebe
   BJPlayerManagerUI: 8fc518ef29a3029201d9e12ef2a308fc318355ce
   BJVideoPlayer: 44211a7e7113e787aa5f174ded3ffe5852e09c7e
   FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa

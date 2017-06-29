@@ -160,6 +160,10 @@
     }
 }
 
+- (void)videoDidFinishPlayInVideoPlayer:(BJPlayerManager *)playerManager {
+    NSLog(@" == >finish");
+}
+
 #pragma mark - set get
 - (void)setScreenType:(BJPUScreenType)screenType
 {
