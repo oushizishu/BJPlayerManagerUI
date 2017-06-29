@@ -55,10 +55,10 @@
 }
 
 //view
-+ (void)setCustomerView:(UIView *)view;
-{
-    
-}
+//+ (void)setCustomerView:(UIView *)view;
+//{
+//    
+//}
 //small image
 + (void)setLogoImage:(UIImage *)image
 {
