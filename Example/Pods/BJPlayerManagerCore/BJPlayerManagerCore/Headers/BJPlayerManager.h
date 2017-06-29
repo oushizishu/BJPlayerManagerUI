@@ -36,10 +36,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- 设置播放ID
+ 设置播放ID, 自动播放
  
  @param vid 视频Id
- @param token 请求 url 的 token
+ @param token token (该token需要客户的后端调百家云后端的API获取,然后传给移动端)
  */
 - (void)setVideoID:(NSString *)vid token:(NSString *)token;
 
@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
  设置播放ID 获取视频相关信息
 
  @param vid 视频Id
- @param token 请求 url 的 token
+ @param token token (该token需要客户的后端调百家云后端的API获取,然后传给移动端)
  @param completion 回调信息  return是否自动播放
  */
 - (void)setVideoID:(NSString *)vid
@@ -58,7 +58,7 @@ NS_ASSUME_NONNULL_BEGIN
  获取指定vid的播放信息
  
  @param vid 视频Id
- @param token 请求 url 的 token
+ @param token token (该token需要客户的后端调百家云后端的API获取,然后传给移动端)
  */
 - (void)getVideoInfoWithVid:(NSString *)vid
                       token:(NSString *)token
@@ -96,6 +96,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface BJPlayerManager (playInfo)
+
+/**
+ 设置视频的起始播放时间, 需要在实例化playerManager对象后 && 调用播放函数之前 设置
+ */
+@property (nonatomic, assign) NSTimeInterval initialPlaybackTime;
 
 /**
  当前播放状态
