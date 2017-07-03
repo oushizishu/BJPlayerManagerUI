@@ -31,7 +31,7 @@ static NSString *tempArrPath;
 @property (weak, nonatomic) IBOutlet UIButton *pauseAll;
 @property (weak, nonatomic) IBOutlet UIButton *resumeAll;
 @property (weak, nonatomic) IBOutlet UIButton *cancelAll;
-@property (nonatomic) NSMutableArray *tempArrM;
+
 @end
 
 @implementation PMDownloadViewController
@@ -43,7 +43,6 @@ static NSString *tempArrPath;
     
     tempArrPath = [[BJDownloadManager manager].loadingDirectory stringByAppendingPathComponent:@"taskArr.plist"];
     self.taskArrM = [NSMutableArray array];
-    self.tempArrM = [NSMutableArray array];
     
     [self decodeFromLocalFile];
     self.vidTextField.text = @"6574024";
@@ -84,7 +83,7 @@ static NSString *tempArrPath;
     }
     
     if ([self vid:self.vidTextField.text type:selectedIndex]) {
-         [MBProgressHUD bjp_showMessageThenHide:@"已在下载队列或者已经下载完成" toView:self.view onHide:nil];
+        [MBProgressHUD bjp_showMessageThenHide:@"已在下载队列或者已经下载完成" toView:self.view onHide:nil];
     }
     else {
         PMDownloadModel *model = [PMDownloadModel new];
@@ -131,7 +130,14 @@ static NSString *tempArrPath;
         cell.size.text = [NSString stringWithFormat:@" %.2fM / %.2fM", pm_receivedSize / 1024.0 / 1024.0 , pm_expectedSize / 1024.0 / 1024.0];
         cell.progressLabel.text = [NSString stringWithFormat:@"%.2f%%", pm_progress * 100];
         cell.progressView.progress = pm_progress;
-
+        
+        PMDownloadModel *model = [self.taskArrM objectAtIndex:[self.tableView indexPathForCell:cell].row];
+        model.progress = pm_progress;
+        model.totalSize = pm_expectedSize;
+        model.receiveSize = pm_receivedSize;
+        
+        [self saveLocal:self.taskArrM];
+        
     } state:^(DownloadState pm_state) {
         @YPStrongObj(self);
         if (self.taskArrM.count < 1) {
@@ -140,6 +146,7 @@ static NSString *tempArrPath;
         PMDownloadModel *model = [self.taskArrM objectAtIndex:[self.tableView indexPathForCell:cell].row];
         cell.stateLabel.text = [self stateString:pm_state];
         model.state = pm_state;
+        [self saveLocal:self.taskArrM];
         
         if (pm_state == 0) {
             [cell.pause setTitle:@"暂停" forState:UIControlStateNormal];
@@ -215,12 +222,14 @@ static NSString *tempArrPath;
 }
 
 - (void)saveLocal:(NSArray *)arr{
-    [self.tempArrM removeAllObjects];
-    for (PMDownloadModel *model in arr) {
-        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:model];
-        [self.tempArrM addObject:data];
-    }
-    [self.tempArrM writeToFile:tempArrPath atomically:YES];
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSMutableArray *tempArrM = [NSMutableArray array];
+        for (PMDownloadModel *model in arr) {
+            NSData *data = [NSKeyedArchiver archivedDataWithRootObject:model];
+            [tempArrM addObject:data];
+        }
+        [tempArrM writeToFile:tempArrPath atomically:YES];
+    });
 }
 
 - (BOOL)decodeFromLocalFile{
@@ -255,7 +264,7 @@ static NSString *tempArrPath;
     return tmpArr.count;
 }
 
-#pragma mark - 
+#pragma mark -
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
@@ -280,15 +289,14 @@ static NSString *tempArrPath;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PMDownloadModel *model = [self.taskArrM objectAtIndex:indexPath.row];
-
-//    NSString *cellIdentifier = [NSString stringWithFormat:@"Cell%zd%zd", [indexPath section], [indexPath row]];
-//    PMDownloadTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    //    NSString *cellIdentifier = [NSString stringWithFormat:@"Cell%zd%zd", [indexPath section], [indexPath row]];
+    //    PMDownloadTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     PMDownloadTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if (!cell) {
         cell=[[[NSBundle mainBundle] loadNibNamed:@"PMDownloadTableViewCell" owner:nil options:nil] lastObject];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [cell setValueWithModel:model];
     
     if ([self stateWithString:cell.stateLabel.text] == -1) {
         [cell.pause setTitle:@"暂停" forState:UIControlStateNormal];
@@ -298,13 +306,15 @@ static NSString *tempArrPath;
         [cell.pause setTitle:@"完成" forState:UIControlStateNormal];
         cell.pause.enabled = NO;
     }
-
+    
+    [cell setValueWithModel:model];
+    
     @YPWeakObj(self);
     cell.pauseBlock = cell.pauseBlock ?: ^(PMDownloadTableViewCell *cel) {
         @YPStrongObj(self);
         NSIndexPath *indexP = [self.tableView indexPathForCell:cel];
         PMDownloadModel *mod = [self.taskArrM objectAtIndex:indexP.row];
-//        [[BJDownloadManager manager] handle:mod.vid definitionType:mod.definitionType];
+        
         if (([self stateWithString:cel.stateLabel.text] == -1) || ([self stateWithString:cell.stateLabel.text] == 3) ||  ([self stateWithString:cell.stateLabel.text] == 4) ) {
             [self downloadWith:mod.vid token:mod.token defintype:mod.definitionType cell:cell];
         }

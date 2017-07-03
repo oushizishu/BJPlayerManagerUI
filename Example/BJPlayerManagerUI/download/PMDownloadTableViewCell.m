@@ -49,6 +49,68 @@ const  NSString *kDownloadCell = @"kDownloadCell";
     NSString *vid  = model.vid;
     NSInteger type = model.definitionType;
     self.nameLabel.text = [NSString stringWithFormat:@"%@_%li", vid, type];
+    CGFloat progress = model.receiveSize / (model.totalSize * 1.000);
+    self.size.text = [NSString stringWithFormat:@" %.2fM / %.2fM", model.receiveSize / 1024.0 / 1024.0 , model.totalSize / 1024.0 / 1024.0];
+    self.progressLabel.text = [NSString stringWithFormat:@"%.2f%%", progress * 100];
+    self.progressView.progress = progress;
+    
+    self.stateLabel.text = [self stateString:model.state];
+    if (model.state == 0) {
+        [self.pause setTitle:@"暂停" forState:UIControlStateNormal];
+    }
+    else if (model.state == 1) {
+        [self.pause setTitle:@"开始" forState:UIControlStateNormal];
+    }
+    else if ((model.state == 3) || (model.state == 4)) {
+        [self.pause setTitle:@"重试" forState:UIControlStateNormal];
+    }
+    else if (model.state == 2) {
+        [self.pause setTitle:@"完成" forState:UIControlStateNormal];
+        self.pause.enabled = NO;
+    }
+    
+    if (model.state == DownloadStateCompleted) {
+        self.pause.enabled = NO;
+        self.cancel.enabled = NO;
+        self.playBtn.enabled = YES;
+        self.progressView.progress = 1.0;
+        self.progressLabel.text = @"100.00%";
+    }
+    else {
+        self.pause.enabled = YES;
+        self.cancel.enabled = YES;
+        self.playBtn.enabled = NO;
+    }
 }
+
+- (NSString *)stateString:(NSInteger)state
+{
+    NSString *str = @"未知";
+    switch (state) {
+        case 0:
+            str = @"下载中";
+            break;
+            
+        case 1:
+            str = @"暂停";
+            break;
+            
+        case 2:
+            str = @"完成";
+            break;
+            
+        case 3:
+            str = @"取消";
+            break;
+            
+        case 4:
+            str = @"失败";
+            break;
+        default:
+            break;
+    }
+    return str;
+}
+
 
 @end

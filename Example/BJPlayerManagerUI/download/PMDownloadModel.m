@@ -10,35 +10,35 @@
 
 @implementation PMDownloadModel
 /*
-- (NSString *)stateString;
-{
-    NSString *str = @"未知";
-    switch (self.state) {
-        case 0:
-            str = @"下载中";
-            break;
-            
-        case 1:
-            str = @"暂停";
-            break;
-            
-        case 2:
-            str = @"完成";
-            break;
-            
-        case 3:
-            str = @"取消";
-            break;
-            
-        case 4:
-            str = @"失败";
-            break;
-        default:
-            break;
-    }
-    return str;
-}
-*/
+ - (NSString *)stateString;
+ {
+ NSString *str = @"未知";
+ switch (self.state) {
+ case 0:
+ str = @"下载中";
+ break;
+ 
+ case 1:
+ str = @"暂停";
+ break;
+ 
+ case 2:
+ str = @"完成";
+ break;
+ 
+ case 3:
+ str = @"取消";
+ break;
+ 
+ case 4:
+ str = @"失败";
+ break;
+ default:
+ break;
+ }
+ return str;
+ }
+ */
 
 - (NSString *)modelIdfi {
     return [NSString stringWithFormat:@"%@%li", self.vid, self.definitionType];
@@ -54,7 +54,7 @@
     [aCoder encodeInteger:self.receiveSize forKey:@"receiveSize"];
     [aCoder encodeInteger:self.totalSize forKey:@"totalSize"];
     [aCoder encodeInteger:self.state forKey:@"state"];
-    [aCoder encodeInteger:self.progree forKey:@"progress"];
+    [aCoder encodeInteger:self.progress forKey:@"progress"];
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
@@ -68,7 +68,7 @@
         _receiveSize = [aDecoder decodeIntegerForKey:@"receiveSize"];
         _totalSize = [aDecoder decodeIntegerForKey:@"totalSize"];
         _state = [aDecoder decodeIntegerForKey:@"state"];
-        _progree = [aDecoder decodeIntegerForKey:@"progress"];
+        _progress = [aDecoder decodeIntegerForKey:@"progress"];
     }
     return self;
 }

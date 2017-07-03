@@ -12,7 +12,7 @@
 
 @property (nonatomic) NSUInteger receiveSize;
 @property (nonatomic) NSUInteger totalSize;
-@property (nonatomic) CGFloat progree;
+@property (nonatomic) CGFloat progress;
 @property (nonatomic) NSInteger state;
 
 @property (nonatomic) NSString *filePath;
