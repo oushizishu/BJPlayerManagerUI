@@ -48,7 +48,14 @@
 #pragma mark - action
 - (void)playAction:(UIButton *)button
 {
-    [_playerManager play];
+    if (_playerManager.playState == PMPlayStateStopped) {
+        if (self.rePlayBlock) {
+            self.rePlayBlock();
+        }
+    }
+    else if (_playerManager.playState == PMPlayStatePaused){
+        [_playerManager play];
+    }
 }
 
 - (void)pauseAction:(UIButton *)button

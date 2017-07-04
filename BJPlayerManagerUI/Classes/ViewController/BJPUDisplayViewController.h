@@ -24,6 +24,8 @@
 
 @property (strong, nonatomic) BJPUSliderView *sliderView;
 
+@property (copy, nonatomic) void(^rePlayBlock)(); 
+
 
 - (instancetype)initWithPlayerManager:(BJPlayerManager *)playerManager;
 

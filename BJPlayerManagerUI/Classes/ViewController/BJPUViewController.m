@@ -12,6 +12,9 @@
 #import "BJPUMacro.h"
 #import <BJPlayerManagerCore/BJPlayerManagerCore.h>
 
+#define YPWeakObj(o) autoreleasepool{} __weak typeof(o) o##Weak = o;
+#define YPStrongObj(o) autoreleasepool{} __strong typeof(o) o = o##Weak;
+
 @interface BJPUViewController () <BJPUViewControllerProtocol, BJPMProtocol>
 
 @property (strong, nonatomic) BJPUSmallViewController *smallVC;
@@ -20,6 +23,10 @@
 
 @property (assign, nonatomic) BOOL isNavigationBarHidden;
 @property (strong, nonatomic) NSTimer *updateDurationTimer;
+
+@property (strong, nonatomic, nullable) NSString *vid, *token;
+@property (strong, nonatomic, nullable) NSString *localVideoPath;
+@property (assign, nonatomic) NSInteger definitionType;
 
 @end
 
@@ -123,11 +130,18 @@
 #pragma mark - public interface
 - (void)playWithVid:(NSString *)vid token:(NSString *)token
 {
+    self.vid = vid;
+    self.token = token;
+    self.localVideoPath = nil;
     [self.playerManager setVideoID:vid token:token];
 }
 
 - (void)playWithVideoPath:(NSString *)path definitionType:(NSInteger)definitionType
 {
+    self.localVideoPath = path;
+    self.definitionType = definitionType;
+    self.vid = nil;
+    self.token = nil;
     [self.playerManager setVideoPath:path definition:definitionType];
 }
 
@@ -194,6 +208,16 @@
     if (!_smallVC) {
         _smallVC = [[BJPUSmallViewController alloc] initWithPlayerManager:self.playerManager];
         _smallVC.delegate = self;
+        @YPWeakObj(self);
+        _smallVC.rePlayBlock = ^(){
+            @YPStrongObj(self);
+            if (self.vid.length && self.token.length) {
+                [self playWithVid:self.vid token:self.token];
+            }
+            else if(self.localVideoPath.length){
+                [self playWithVideoPath:self.localVideoPath definitionType:self.definitionType];
+            }
+        };
         [self addChildViewController:_smallVC];
     }
     return _smallVC;
@@ -204,6 +228,16 @@
     if (!_fullVC) {
         _fullVC = [[BJPUFullViewController alloc] initWithPlayerManager:self.playerManager];
         _fullVC.delegate = self;
+        @YPWeakObj(self);
+        _fullVC.rePlayBlock = ^(){
+            @YPStrongObj(self);
+            if (self.vid.length && self.token.length) {
+                [self playWithVid:self.vid token:self.token];
+            }
+            else if(self.localVideoPath.length){
+                [self playWithVideoPath:self.localVideoPath definitionType:self.definitionType];
+            }
+        };
         [self addChildViewController:_fullVC];
     }
     return _fullVC;
