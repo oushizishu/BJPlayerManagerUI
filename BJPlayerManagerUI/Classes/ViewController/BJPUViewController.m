@@ -85,16 +85,28 @@
 - (void)deviceOrientationDidChange:(NSNotification *)noti
 {
     UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-    if (orientation == UIDeviceOrientationLandscapeLeft || orientation == UIDeviceOrientationLandscapeRight || [self.fullVC isLocked]) {
+    
+    if ([self.fullVC isLocked]
+        && orientation != UIDeviceOrientationLandscapeLeft
+        && orientation != UIDeviceOrientationLandscapeRight) {
+        
+        [self changeScreenType:BJPUScreenType_Full];
+        return;
+    }
+    
+    if (orientation == UIDeviceOrientationLandscapeLeft || orientation == UIDeviceOrientationLandscapeRight) {
         NSLog(@"横屏模式");
         _isNavigationBarHidden = self.navigationController.isNavigationBarHidden;
         self.navigationController.navigationBarHidden = YES;
         self.screenType = BJPUScreenType_Full;
     }
     else if (orientation == UIDeviceOrientationPortrait) {
+        //        || orientation == UIDeviceOrientationPortraitUpsideDown) {
         NSLog(@"竖屏模式");
+        //        [self.navigationController setNavigationBarHidden:_isNavigationBarHidden];
         [self.navigationController setNavigationBarHidden:NO];
         self.screenType = BJPUScreenType_Small;
+        
     }
 }
 
@@ -186,7 +198,17 @@
         self.smallVC.view.hidden = true;
         self.fullVC.view.hidden = false;
         self.navigationController.navigationBarHidden = true;
-        self.view.frame = CGRectMake(0, 0, BJPUScreenHeight, BJPUScreenWidth);
+        
+        CGFloat h = [UIScreen mainScreen].bounds.size.height;
+        CGFloat w = [UIScreen mainScreen].bounds.size.width;
+        
+        if ([self.fullVC isLocked]) {
+            self.view.frame = CGRectMake(0, 0, w, h);
+        }
+        else {
+            self.view.frame = CGRectMake(0, 0, BJPUScreenHeight, BJPUScreenWidth);
+        }
+        
     } else if (screenType == BJPUScreenType_Small) {
         self.smallVC.view.hidden = false;
         self.fullVC.view.hidden = true;
@@ -242,5 +264,4 @@
     }
     return _fullVC;
 }
-
 @end
