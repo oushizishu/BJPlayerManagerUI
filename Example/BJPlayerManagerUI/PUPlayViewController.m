@@ -41,10 +41,9 @@
     self.playerUIVC = [[BJPUViewController alloc] init];
     [self.playerUIVC setSmallScreenFrame:CGRectMake(0, 64, BJPUScreenWidth, BJPUScreenWidth*9/16)];
     [self.view addSubview:self.playerUIVC.view];
-    if ([UIDevice currentDevice].orientation == UIDeviceOrientationLandscapeLeft
-        || [UIDevice currentDevice].orientation == UIDeviceOrientationLandscapeRight )
-//        || [UIDevice currentDevice].orientation == UIDeviceOrientationPortraitUpsideDown)
-    {
+    UIInterfaceOrientation orirentaion = [[UIApplication sharedApplication] statusBarOrientation];
+    if (orirentaion == UIDeviceOrientationLandscapeLeft
+        || orirentaion == UIDeviceOrientationLandscapeRight) {
         [self.playerUIVC setScreenType:BJPUScreenType_Full];
         self.navigationController.navigationBarHidden = YES;
     }
