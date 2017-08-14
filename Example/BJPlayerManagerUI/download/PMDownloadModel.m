@@ -10,35 +10,35 @@
 
 @implementation PMDownloadModel
 /*
- - (NSString *)stateString;
- {
- NSString *str = @"未知";
- switch (self.state) {
- case 0:
- str = @"下载中";
- break;
- 
- case 1:
- str = @"暂停";
- break;
- 
- case 2:
- str = @"完成";
- break;
- 
- case 3:
- str = @"取消";
- break;
- 
- case 4:
- str = @"失败";
- break;
- default:
- break;
- }
- return str;
- }
- */
+- (NSString *)stateString;
+{
+    NSString *str = @"未知";
+    switch (self.state) {
+        case 0:
+            str = @"下载中";
+            break;
+            
+        case 1:
+            str = @"暂停";
+            break;
+            
+        case 2:
+            str = @"完成";
+            break;
+            
+        case 3:
+            str = @"取消";
+            break;
+            
+        case 4:
+            str = @"失败";
+            break;
+        default:
+            break;
+    }
+    return str;
+}
+*/
 
 - (NSString *)modelIdfi {
     return [NSString stringWithFormat:@"%@%li", self.vid, self.definitionType];

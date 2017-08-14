@@ -12,7 +12,7 @@
 #import "BJPUProgressView.h"
 #import "BJPUSliderView.h"
 
-@interface BJPUDisplayViewController : UIViewController
+@interface BJPUDisplayViewController : UIViewController <BJPUSliderProtocol>
 
 @property (weak, nonatomic) id<BJPUViewControllerProtocol> delegate;
 
@@ -24,8 +24,7 @@
 
 @property (strong, nonatomic) BJPUSliderView *sliderView;
 
-@property (copy, nonatomic) void(^rePlayBlock)(); 
-
+@property (copy, nonatomic) void(^rePlayBlock)();
 
 - (instancetype)initWithPlayerManager:(BJPlayerManager *)playerManager;
 

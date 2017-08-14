@@ -127,7 +127,7 @@ typedef NS_ENUM(NSInteger, BJPUSliderType)
     [UIView animateWithDuration:3 animations:^{
         self.lightView.alpha = 0.0f;
     }];
-
+    
     UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
     [MBProgressHUD hideHUDForView:keyWindow animated:YES];
 }
@@ -271,7 +271,7 @@ typedef NS_ENUM(NSInteger, BJPUSliderType)
     }];
     [self.progressView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.offset(0);
-//        make.top.mas_equalTo(self.lightView.mas_bottom).offset(10.f);
+        //        make.top.mas_equalTo(self.lightView.mas_bottom).offset(10.f);
         make.bottom.offset(-15.f);
         make.height.equalTo(@7);
         make.left.offset(13.f);

@@ -89,7 +89,7 @@
     if ([self.fullVC isLocked]
         && orientation != UIDeviceOrientationLandscapeLeft
         && orientation != UIDeviceOrientationLandscapeRight) {
-        
+
         [self changeScreenType:BJPUScreenType_Full];
         return;
     }
@@ -101,12 +101,12 @@
         self.screenType = BJPUScreenType_Full;
     }
     else if (orientation == UIDeviceOrientationPortrait) {
-        //        || orientation == UIDeviceOrientationPortraitUpsideDown) {
+//        || orientation == UIDeviceOrientationPortraitUpsideDown) {
         NSLog(@"竖屏模式");
-        //        [self.navigationController setNavigationBarHidden:_isNavigationBarHidden];
+//        [self.navigationController setNavigationBarHidden:_isNavigationBarHidden];
         [self.navigationController setNavigationBarHidden:NO];
         self.screenType = BJPUScreenType_Small;
-        
+
     }
 }
 

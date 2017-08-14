@@ -11,6 +11,7 @@
 #import "PKMoviePlayback.h"
 #import "PKMovieplayer.h"
 #import "PKVideoPlayer.h"
+#import "GBPing.h"
 
 enum {
     PKMovieScalingModeNone,       // No scaling
@@ -108,7 +109,7 @@ typedef NSInteger PKMovieFinishReason;
 
 @end
 
-@interface PKMoviePlayerController : NSObject <PKMoviePlayback, ADVideoPlayerDelegate, AVPictureInPictureControllerDelegate>
+@interface PKMoviePlayerController : NSObject <PKMoviePlayback, ADVideoPlayerDelegate, AVPictureInPictureControllerDelegate, GBPingDelegate>
 {
     BOOL _isPreparedToPlay;
     PKMovieLoadState _loadState;
@@ -147,6 +148,20 @@ typedef NSInteger PKMovieFinishReason;
 - (void)useLocalVideo:(BOOL)flag;
 
 - (BOOL)getLocalVideo;
+
+//write to file
+- (void)closeLog:(FILE*)logfd;
+
+- (void)closeLog;
+
+/**
+ 创建一个log文件, 存在沙盒的cache目录下
+
+ @return log文件的路径
+ */
+- (NSString *)createLogToCacheFolder;
+
+- (void)delLogDirectory;
 
 
 

@@ -1,6 +1,6 @@
 {
   "name": "BJPlayerManagerUI",
-  "version": "0.1.2",
+  "version": "0.1.5",
   "summary": "BJPlayerManagerUI.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/baijia/BJPlayerManagerUI.git",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/baijia/BJPlayerManagerUI.git",
-    "tag": "0.1.2"
+    "tag": "0.1.5"
   },
   "platforms": {
     "ios": "8.0"
@@ -32,7 +32,7 @@
 
     ],
     "BJPlayerManagerCore": [
-      "~> 0.3.0"
+      "~> 0.4.0"
     ]
   },
   "prefix_header_contents": [

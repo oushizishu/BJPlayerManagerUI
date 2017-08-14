@@ -52,24 +52,26 @@
     self.hiddenTimer = nil;
 }
 
-- (void)viewDidLayoutSubviews
-{
-    CGFloat x = self.playButton.frame.origin.x + self.playButton.frame.size.width + 10;
-    CGFloat width = self.scaleButton.frame.origin.x - 10 - x;
-    self.progressView.frame = CGRectMake(x, 15, width, 10);
-}
+//- (void)viewDidLayoutSubviews
+//{
+//    CGFloat x = self.playButton.frame.origin.x + self.playButton.frame.size.width + 10;
+//    CGFloat width = self.scaleButton.frame.origin.x - 10 - x;
+//    self.progressView.frame = CGRectMake(x, 15, width, 10);
+//}
 
 - (void)setupSubViews
 {
     [self.view setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview:self.sliderView];
     [self.view addSubview:self.bottomView];
+    
     [self.bottomView addSubview:self.playButton];
     [self.bottomView addSubview:self.pauseButton];
     [self.bottomView addSubview:self.progressView];
     [self.bottomView addSubview:self.scaleButton];
     [self.bottomView addSubview:self.relTimeLabel];
     [self.bottomView addSubview:self.durationLabel];
+    
     [self.sliderView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.leading.trailing.offset(0);
         make.bottom.equalTo(self.bottomView.mas_top);
@@ -90,6 +92,12 @@
         make.trailing.offset(-10.f);
         make.centerY.offset(0.f);
         make.width.height.mas_equalTo(30.f);
+    }];
+    [self.progressView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.playButton.mas_trailing).offset(10.f);
+        make.trailing.equalTo(self.scaleButton.mas_leading).offset(-10.f);
+        make.top.offset(15.f);
+        make.height.mas_equalTo(10.f);
     }];
     [self.relTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.offset(-5.f);
@@ -189,7 +197,8 @@
 - (BJPUProgressView *)progressView
 {
     if (!_progressView) {
-        _progressView = [[BJPUProgressView alloc] initWithFrame:CGRectMake(100, 15, 50, 10)];
+//        _progressView = [[BJPUProgressView alloc] initWithFrame:CGRectMake(100, 15, 50, 10)];
+        _progressView = [[BJPUProgressView alloc] init];
         [_progressView.slider addTarget:self action:@selector(sliderChanged:) forControlEvents:UIControlEventValueChanged];
         [_progressView.slider addTarget:self action:@selector(dragSlider:) forControlEvents:UIControlEventTouchUpInside];
         [_progressView.slider addTarget:self action:@selector(dragSlider:) forControlEvents:UIControlEventTouchUpOutside];

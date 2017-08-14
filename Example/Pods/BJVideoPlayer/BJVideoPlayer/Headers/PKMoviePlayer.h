@@ -74,3 +74,4 @@ extern NSString *const PKMoviePlayerPictureInPicturePossibleDidChangeNotificatio
 //extern NSString *const PKMovieSourceTypeAvailableNotification NS_AVAILABLE_IOS(3_2); // Posted if the movieSourceType is PKMovieSourceTypeUnknown when preparing for playback.
 extern NSString *const PKMovieDurationAvailableNotification NS_AVAILABLE_IOS(3_2);
 //extern NSString *const PKMovieNaturalSizeAvailableNotification NS_AVAILABLE_IOS(3_2);
+

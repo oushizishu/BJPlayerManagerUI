@@ -30,7 +30,7 @@
 
 + (void)setNextButtonImage:(UIImage *)image;
 
-//+ (void)setCustomerView:(UIView *)view;
++ (void)setCustomerView:(UIView *)view;
 
 + (void)setProgressSliderImage:(UIImage *)image;
 

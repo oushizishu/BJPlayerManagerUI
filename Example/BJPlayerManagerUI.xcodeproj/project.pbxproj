@@ -9,15 +9,15 @@
 /* Begin PBXBuildFile section */
 		282663A91EE143AF004235E3 /* PUMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 282663A61EE143AF004235E3 /* PUMainViewController.m */; };
 		282663AA1EE143AF004235E3 /* PUPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 282663A81EE143AF004235E3 /* PUPlayViewController.m */; };
-		28B1D84D1EFCBC7500BE7763 /* PMDownloadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B1D83C1EFCBC7500BE7763 /* PMDownloadModel.m */; };
-		28B1D84E1EFCBC7500BE7763 /* PMDownloadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B1D83E1EFCBC7500BE7763 /* PMDownloadTableViewCell.m */; };
-		28B1D84F1EFCBC7500BE7763 /* PMDownloadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28B1D83F1EFCBC7500BE7763 /* PMDownloadTableViewCell.xib */; };
-		28B1D8501EFCBC7500BE7763 /* PMDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B1D8411EFCBC7500BE7763 /* PMDownloadViewController.m */; };
-		28B1D8511EFCBC7500BE7763 /* PMDownloadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28B1D8421EFCBC7500BE7763 /* PMDownloadViewController.xib */; };
-		28B1D8521EFCBC7500BE7763 /* MBProgressHUD+bjp.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B1D8451EFCBC7500BE7763 /* MBProgressHUD+bjp.m */; };
-		28B1D8531EFCBC7500BE7763 /* NSString+md5.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B1D8471EFCBC7500BE7763 /* NSString+md5.m */; };
-		28B1D8541EFCBC7500BE7763 /* UIAlertView+bjp.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B1D8491EFCBC7500BE7763 /* UIAlertView+bjp.m */; };
-		28B1D8551EFCBC7500BE7763 /* PMLocalViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B1D84C1EFCBC7500BE7763 /* PMLocalViewViewController.m */; };
+		28B1D82F1EFBB5F300BE7763 /* PMDownloadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B1D8201EFBB5F300BE7763 /* PMDownloadModel.m */; };
+		28B1D8301EFBB5F300BE7763 /* PMDownloadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B1D8221EFBB5F300BE7763 /* PMDownloadTableViewCell.m */; };
+		28B1D8311EFBB5F300BE7763 /* PMDownloadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28B1D8231EFBB5F300BE7763 /* PMDownloadTableViewCell.xib */; };
+		28B1D8321EFBB5F300BE7763 /* PMDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B1D8251EFBB5F300BE7763 /* PMDownloadViewController.m */; };
+		28B1D8331EFBB5F300BE7763 /* PMDownloadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28B1D8261EFBB5F300BE7763 /* PMDownloadViewController.xib */; };
+		28B1D8341EFBB5F300BE7763 /* MBProgressHUD+bjp.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B1D8291EFBB5F300BE7763 /* MBProgressHUD+bjp.m */; };
+		28B1D8351EFBB5F300BE7763 /* UIAlertView+bjp.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B1D82B1EFBB5F300BE7763 /* UIAlertView+bjp.m */; };
+		28B1D8361EFBB5F300BE7763 /* PMLocalViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B1D82E1EFBB5F300BE7763 /* PMLocalViewViewController.m */; };
+		28B1D8391EFBB71700BE7763 /* NSString+md5.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B1D8381EFBB71700BE7763 /* NSString+md5.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -54,22 +54,22 @@
 		282663A61EE143AF004235E3 /* PUMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PUMainViewController.m; sourceTree = "<group>"; };
 		282663A71EE143AF004235E3 /* PUPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PUPlayViewController.h; sourceTree = "<group>"; };
 		282663A81EE143AF004235E3 /* PUPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PUPlayViewController.m; sourceTree = "<group>"; };
-		28B1D83B1EFCBC7500BE7763 /* PMDownloadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMDownloadModel.h; sourceTree = "<group>"; };
-		28B1D83C1EFCBC7500BE7763 /* PMDownloadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMDownloadModel.m; sourceTree = "<group>"; };
-		28B1D83D1EFCBC7500BE7763 /* PMDownloadTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMDownloadTableViewCell.h; sourceTree = "<group>"; };
-		28B1D83E1EFCBC7500BE7763 /* PMDownloadTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMDownloadTableViewCell.m; sourceTree = "<group>"; };
-		28B1D83F1EFCBC7500BE7763 /* PMDownloadTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMDownloadTableViewCell.xib; sourceTree = "<group>"; };
-		28B1D8401EFCBC7500BE7763 /* PMDownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMDownloadViewController.h; sourceTree = "<group>"; };
-		28B1D8411EFCBC7500BE7763 /* PMDownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMDownloadViewController.m; sourceTree = "<group>"; };
-		28B1D8421EFCBC7500BE7763 /* PMDownloadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMDownloadViewController.xib; sourceTree = "<group>"; };
-		28B1D8441EFCBC7500BE7763 /* MBProgressHUD+bjp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+bjp.h"; sourceTree = "<group>"; };
-		28B1D8451EFCBC7500BE7763 /* MBProgressHUD+bjp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+bjp.m"; sourceTree = "<group>"; };
-		28B1D8461EFCBC7500BE7763 /* NSString+md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+md5.h"; sourceTree = "<group>"; };
-		28B1D8471EFCBC7500BE7763 /* NSString+md5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+md5.m"; sourceTree = "<group>"; };
-		28B1D8481EFCBC7500BE7763 /* UIAlertView+bjp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+bjp.h"; sourceTree = "<group>"; };
-		28B1D8491EFCBC7500BE7763 /* UIAlertView+bjp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+bjp.m"; sourceTree = "<group>"; };
-		28B1D84B1EFCBC7500BE7763 /* PMLocalViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMLocalViewViewController.h; sourceTree = "<group>"; };
-		28B1D84C1EFCBC7500BE7763 /* PMLocalViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMLocalViewViewController.m; sourceTree = "<group>"; };
+		28B1D81F1EFBB5F300BE7763 /* PMDownloadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMDownloadModel.h; sourceTree = "<group>"; };
+		28B1D8201EFBB5F300BE7763 /* PMDownloadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMDownloadModel.m; sourceTree = "<group>"; };
+		28B1D8211EFBB5F300BE7763 /* PMDownloadTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMDownloadTableViewCell.h; sourceTree = "<group>"; };
+		28B1D8221EFBB5F300BE7763 /* PMDownloadTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMDownloadTableViewCell.m; sourceTree = "<group>"; };
+		28B1D8231EFBB5F300BE7763 /* PMDownloadTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMDownloadTableViewCell.xib; sourceTree = "<group>"; };
+		28B1D8241EFBB5F300BE7763 /* PMDownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMDownloadViewController.h; sourceTree = "<group>"; };
+		28B1D8251EFBB5F300BE7763 /* PMDownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMDownloadViewController.m; sourceTree = "<group>"; };
+		28B1D8261EFBB5F300BE7763 /* PMDownloadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMDownloadViewController.xib; sourceTree = "<group>"; };
+		28B1D8281EFBB5F300BE7763 /* MBProgressHUD+bjp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+bjp.h"; sourceTree = "<group>"; };
+		28B1D8291EFBB5F300BE7763 /* MBProgressHUD+bjp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+bjp.m"; sourceTree = "<group>"; };
+		28B1D82A1EFBB5F300BE7763 /* UIAlertView+bjp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+bjp.h"; sourceTree = "<group>"; };
+		28B1D82B1EFBB5F300BE7763 /* UIAlertView+bjp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+bjp.m"; sourceTree = "<group>"; };
+		28B1D82D1EFBB5F300BE7763 /* PMLocalViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMLocalViewViewController.h; sourceTree = "<group>"; };
+		28B1D82E1EFBB5F300BE7763 /* PMLocalViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMLocalViewViewController.m; sourceTree = "<group>"; };
+		28B1D8371EFBB71700BE7763 /* NSString+md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+md5.h"; sourceTree = "<group>"; };
+		28B1D8381EFBB71700BE7763 /* NSString+md5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+md5.m"; sourceTree = "<group>"; };
 		3CECDDE7885D7A94085B54FF /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		47D032497D7DEE9E8FF3E756 /* Pods-BJPlayerManagerUI_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BJPlayerManagerUI_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BJPlayerManagerUI_Example/Pods-BJPlayerManagerUI_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		53F2B31254A88B2D9239271B /* Pods-BJPlayerManagerUI_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BJPlayerManagerUI_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BJPlayerManagerUI_Tests/Pods-BJPlayerManagerUI_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -126,39 +126,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		28B1D83A1EFCBC7500BE7763 /* download */ = {
+		28B1D81E1EFBB5F300BE7763 /* download */ = {
 			isa = PBXGroup;
 			children = (
-				28B1D83B1EFCBC7500BE7763 /* PMDownloadModel.h */,
-				28B1D83C1EFCBC7500BE7763 /* PMDownloadModel.m */,
-				28B1D83D1EFCBC7500BE7763 /* PMDownloadTableViewCell.h */,
-				28B1D83E1EFCBC7500BE7763 /* PMDownloadTableViewCell.m */,
-				28B1D83F1EFCBC7500BE7763 /* PMDownloadTableViewCell.xib */,
-				28B1D8401EFCBC7500BE7763 /* PMDownloadViewController.h */,
-				28B1D8411EFCBC7500BE7763 /* PMDownloadViewController.m */,
-				28B1D8421EFCBC7500BE7763 /* PMDownloadViewController.xib */,
+				28B1D81F1EFBB5F300BE7763 /* PMDownloadModel.h */,
+				28B1D8201EFBB5F300BE7763 /* PMDownloadModel.m */,
+				28B1D8211EFBB5F300BE7763 /* PMDownloadTableViewCell.h */,
+				28B1D8221EFBB5F300BE7763 /* PMDownloadTableViewCell.m */,
+				28B1D8231EFBB5F300BE7763 /* PMDownloadTableViewCell.xib */,
+				28B1D8241EFBB5F300BE7763 /* PMDownloadViewController.h */,
+				28B1D8251EFBB5F300BE7763 /* PMDownloadViewController.m */,
+				28B1D8261EFBB5F300BE7763 /* PMDownloadViewController.xib */,
 			);
 			path = download;
 			sourceTree = "<group>";
 		};
-		28B1D8431EFCBC7500BE7763 /* extension */ = {
+		28B1D8271EFBB5F300BE7763 /* extension */ = {
 			isa = PBXGroup;
 			children = (
-				28B1D8441EFCBC7500BE7763 /* MBProgressHUD+bjp.h */,
-				28B1D8451EFCBC7500BE7763 /* MBProgressHUD+bjp.m */,
-				28B1D8461EFCBC7500BE7763 /* NSString+md5.h */,
-				28B1D8471EFCBC7500BE7763 /* NSString+md5.m */,
-				28B1D8481EFCBC7500BE7763 /* UIAlertView+bjp.h */,
-				28B1D8491EFCBC7500BE7763 /* UIAlertView+bjp.m */,
+				28B1D8281EFBB5F300BE7763 /* MBProgressHUD+bjp.h */,
+				28B1D8291EFBB5F300BE7763 /* MBProgressHUD+bjp.m */,
+				28B1D82A1EFBB5F300BE7763 /* UIAlertView+bjp.h */,
+				28B1D82B1EFBB5F300BE7763 /* UIAlertView+bjp.m */,
+				28B1D8371EFBB71700BE7763 /* NSString+md5.h */,
+				28B1D8381EFBB71700BE7763 /* NSString+md5.m */,
 			);
 			path = extension;
 			sourceTree = "<group>";
 		};
-		28B1D84A1EFCBC7500BE7763 /* localVideo */ = {
+		28B1D82C1EFBB5F300BE7763 /* localVideo */ = {
 			isa = PBXGroup;
 			children = (
-				28B1D84B1EFCBC7500BE7763 /* PMLocalViewViewController.h */,
-				28B1D84C1EFCBC7500BE7763 /* PMLocalViewViewController.m */,
+				28B1D82D1EFBB5F300BE7763 /* PMLocalViewViewController.h */,
+				28B1D82E1EFBB5F300BE7763 /* PMLocalViewViewController.m */,
 			);
 			path = localVideo;
 			sourceTree = "<group>";
@@ -208,9 +208,9 @@
 				282663A61EE143AF004235E3 /* PUMainViewController.m */,
 				282663A71EE143AF004235E3 /* PUPlayViewController.h */,
 				282663A81EE143AF004235E3 /* PUPlayViewController.m */,
-				28B1D83A1EFCBC7500BE7763 /* download */,
-				28B1D8431EFCBC7500BE7763 /* extension */,
-				28B1D84A1EFCBC7500BE7763 /* localVideo */,
+				28B1D81E1EFBB5F300BE7763 /* download */,
+				28B1D8271EFBB5F300BE7763 /* extension */,
+				28B1D82C1EFBB5F300BE7763 /* localVideo */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
@@ -326,7 +326,7 @@
 				ORGANIZATIONNAME = oushizishu;
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
-						DevelopmentTeam = 999368SJ2Y;
+						DevelopmentTeam = 5EMFG9Z439;
 					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
@@ -357,12 +357,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28B1D84F1EFCBC7500BE7763 /* PMDownloadTableViewCell.xib in Resources */,
+				28B1D8311EFBB5F300BE7763 /* PMDownloadTableViewCell.xib in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
-				28B1D8511EFCBC7500BE7763 /* PMDownloadViewController.xib in Resources */,
+				28B1D8331EFBB5F300BE7763 /* PMDownloadViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,16 +475,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* PUAppDelegate.m in Sources */,
-				28B1D8501EFCBC7500BE7763 /* PMDownloadViewController.m in Sources */,
-				28B1D8531EFCBC7500BE7763 /* NSString+md5.m in Sources */,
+				28B1D8321EFBB5F300BE7763 /* PMDownloadViewController.m in Sources */,
+				28B1D8351EFBB5F300BE7763 /* UIAlertView+bjp.m in Sources */,
 				6003F5A7195388D20070C39A /* PUViewController.m in Sources */,
-				28B1D8551EFCBC7500BE7763 /* PMLocalViewViewController.m in Sources */,
 				282663A91EE143AF004235E3 /* PUMainViewController.m in Sources */,
-				28B1D8521EFCBC7500BE7763 /* MBProgressHUD+bjp.m in Sources */,
+				28B1D8341EFBB5F300BE7763 /* MBProgressHUD+bjp.m in Sources */,
+				28B1D8391EFBB71700BE7763 /* NSString+md5.m in Sources */,
 				282663AA1EE143AF004235E3 /* PUPlayViewController.m in Sources */,
-				28B1D84D1EFCBC7500BE7763 /* PMDownloadModel.m in Sources */,
-				28B1D8541EFCBC7500BE7763 /* UIAlertView+bjp.m in Sources */,
-				28B1D84E1EFCBC7500BE7763 /* PMDownloadTableViewCell.m in Sources */,
+				28B1D82F1EFBB5F300BE7763 /* PMDownloadModel.m in Sources */,
+				28B1D8301EFBB5F300BE7763 /* PMDownloadTableViewCell.m in Sources */,
+				28B1D8361EFBB5F300BE7763 /* PMLocalViewViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -613,7 +613,7 @@
 			baseConfigurationReference = 47D032497D7DEE9E8FF3E756 /* Pods-BJPlayerManagerUI_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 999368SJ2Y;
+				DEVELOPMENT_TEAM = 5EMFG9Z439;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BJPlayerManagerUI/BJPlayerManagerUI-Prefix.pch";
 				INFOPLIST_FILE = "BJPlayerManagerUI/BJPlayerManagerUI-Info.plist";
@@ -630,7 +630,7 @@
 			baseConfigurationReference = 6384C2C0F66DEF12B65F38E2 /* Pods-BJPlayerManagerUI_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 999368SJ2Y;
+				DEVELOPMENT_TEAM = 5EMFG9Z439;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BJPlayerManagerUI/BJPlayerManagerUI-Prefix.pch";
 				INFOPLIST_FILE = "BJPlayerManagerUI/BJPlayerManagerUI-Info.plist";

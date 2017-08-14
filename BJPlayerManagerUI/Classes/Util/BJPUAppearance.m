@@ -88,9 +88,9 @@
     int minums = ((long long)interval % 3600) / 60;
     int seconds = (long long)interval % 60;
     if (hours > 0) {
-        return [NSString stringWithFormat:@"%2d:%2d:%2d", hours, minums, seconds];
+        return [NSString stringWithFormat:@"%02d:%02d:%02d", hours, minums, seconds];
     } else {
-        return [NSString stringWithFormat:@"%2d:%2d", minums, seconds];
+        return [NSString stringWithFormat:@"%02d:%02d", minums, seconds];
     }
 }
 

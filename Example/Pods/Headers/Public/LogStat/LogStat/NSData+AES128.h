@@ -1,1 +1,1 @@
-../../../../LogStat/LogStat-0.6.6/LogStat.framework/Versions/A/Headers/NSData+AES128.h
+../../../../LogStat/LogStat-0.7.0/LogStat.framework/Versions/A/Headers/NSData+AES128.h

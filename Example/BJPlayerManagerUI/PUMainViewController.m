@@ -26,6 +26,10 @@
 //yes: 有片头片尾,另外还需要后台配置url才会有片头片尾, 如果没有配置, 就算adSwitch.on = yes, 也没有片头片尾
 //no: 没有广告
 @property (strong, nonatomic) UISwitch *adSwitch;
+
+@property (strong, nonatomic) UIScrollView *scrollView;
+@property (strong, nonatomic) UIView *contentView;
+
 @end
 
 @implementation PUMainViewController
@@ -34,25 +38,36 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    [self setupScrollView];
+    
 #if DEBUG
-    /*
-     // GitHub上的代码不支持设置环境
-    [self.view addSubview:self.deploySegment];
-     */
+//    [self.contentView addSubview:self.deploySegment];
+//    [self deploySegmentMakeConstraints];
 #else
 #endif
-    [self.view addSubview:self.vidTextField];
-    [self.view addSubview:self.tokenTextField];
-    [self.view addSubview:self.adLabel];
-    [self.view addSubview:self.adSwitch];
-    [self.view addSubview:self.playButton];
-    [self.view addSubview:self.downloadBtn];
+    [self.contentView addSubview:self.vidTextField];
+    [self.contentView addSubview:self.tokenTextField];
+    [self.contentView addSubview:self.adLabel];
+    [self.contentView addSubview:self.adSwitch];
+    [self.contentView addSubview:self.playButton];
+    [self.contentView addSubview:self.downloadBtn];
     [self makeConstraints];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setupScrollView
+{
+    self.contentView = [UIView new];
+    self.scrollView = [UIScrollView new];
+    self.scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.frame.size.height);
+    
+    [self.scrollView addSubview:self.contentView];
+    [self.view addSubview:self.scrollView];
 }
 
 - (void)entryPlayControl
@@ -98,7 +113,6 @@
 {
     if (!_deploySegment) {
         _deploySegment = [[UISegmentedControl alloc] initWithItems:@[@"测试环境", @"Beta", @"线上"]];
-        _deploySegment.frame = CGRectMake(20, 100, ScreenWidth - 40, 30);
         NSInteger index = [[NSUserDefaults standardUserDefaults] integerForKey:@"developType"];
         _deploySegment.selectedSegmentIndex = index;
         [self setDevelopType:index];
@@ -111,7 +125,7 @@
     if(!_vidTextField) {
         _vidTextField = [[UITextField alloc] init];
         _vidTextField.placeholder = @"vid";
-        _vidTextField.text = @"6675459";
+        _vidTextField.text =  @"7029660";
         _vidTextField.layer.borderColor = [UIColor grayColor].CGColor;
         _vidTextField.layer.borderWidth = 0.5;
         _vidTextField.layer.cornerRadius = 5.f;
@@ -124,7 +138,7 @@
     if(!_tokenTextField) {
         _tokenTextField = [[UITextField alloc] init];
         _tokenTextField.placeholder = @"token";
-        _tokenTextField.text = @"_bxXjD0HrF43S3PxCaNttR0QDPLIrj5HHFoJA-fpZQuqnE4eIe0_Hg";
+        _tokenTextField.text = @"XuEeKf7gFWY3S3PxCaNttVwQ5J9wa_7zC-Z76fC64wmkrykrfE3AFA";
         _tokenTextField.layer.borderColor = [UIColor grayColor].CGColor;
         _tokenTextField.layer.borderWidth = 0.5;
         _tokenTextField.layer.cornerRadius = 5.f;
@@ -177,12 +191,30 @@
     return _downloadBtn;
 }
 
+- (void)deploySegmentMakeConstraints
+{
+    [self.deploySegment mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.equalTo(self.contentView).offset(20.f);
+        make.right.equalTo(self.contentView).offset(-20.f);
+        make.height.equalTo(@30);
+    }];
+}
+
 - (void)makeConstraints {
+    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.width.equalTo(self.view);
+        make.top.left.equalTo(self.scrollView);
+    }];
+    
+    [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    
     [self.vidTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@30);
-        make.left.equalTo(self.view).offset(30);
-        make.right.equalTo(self.view).offset(-30);
-        make.top.equalTo(self.view).offset(150);
+        make.left.equalTo(self.contentView).offset(30);
+        make.right.equalTo(self.contentView).offset(-30);
+        make.top.equalTo(self.contentView).offset(70);
     }];
     
     [self.tokenTextField mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -233,8 +265,6 @@
 - (void)setDevelopType:(NSInteger)type {
     
 #if DEBUG
-    // guthub上的代码不支持设置环境
-    /*
     switch (type) {
         case 0:
             [PMAppConfig sharedInstance].deployType = PMDeployType_test;
@@ -251,7 +281,6 @@
         default:
             break;
     }
-     */
 #else
 #endif
 }

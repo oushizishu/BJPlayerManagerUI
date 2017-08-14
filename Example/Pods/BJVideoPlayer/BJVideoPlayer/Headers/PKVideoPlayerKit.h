@@ -9,6 +9,8 @@
 #ifndef PKVideoPlayerKit_h
 #define PKVideoPlayerKit_h
 
+    extern FILE* global_logfd;
+
     #ifndef __IPHONE_5_0
         #error "PKVideoPlayerKit uses features only available in iOS SDK 5.0 and later."
     #endif
@@ -18,6 +20,14 @@
     #else
         #define VDLog(...)
     #endif
+
+    #define FLog(fmt, ...) {                                    \
+                if(global_logfd) {                                \
+                    fprintf(global_logfd, fmt, ##__VA_ARGS__);    \
+                    fflush(global_logfd);                         \
+                }                                               \
+    }
+
 
     #import <AVFoundation/AVFoundation.h>
     #import <CoreMedia/CoreMedia.h>

@@ -17,7 +17,8 @@
 #import "BJPUTheme.h"
 #import "BJPUAppearance.h"
 
-@interface BJPUFullViewController () <UIGestureRecognizerDelegate>
+@interface BJPUFullViewController () <UIGestureRecognizerDelegate,
+BJPULessonListViewProtocol, BJPUDefinitionViewProtocol, BJPURateViewProtocol>
 //View
 @property (strong, nonatomic) UIView *topBarView;
 @property (strong, nonatomic) UIButton *lockButton;
@@ -160,6 +161,8 @@
     } else if (PMPlayStatePlaying == state) {
         self.bottomBarView.playButton.hidden = true;
         self.bottomBarView.pauseButton.hidden = false;
+        PMVideoDefinitionInfoModel *definitionModel = self.playerManager.currDefinitionInfoModel;
+        [self.rightView.definitionButton setTitle:definitionModel.definition forState:UIControlStateNormal];
     }
 }
 
@@ -193,6 +196,10 @@
             self.rightView.hidden = true;
         }];
     } else { //没锁屏，全部显示
+        
+        PMVideoDefinitionInfoModel *definitionModel = self.playerManager.currDefinitionInfoModel;
+        [self.rightView.definitionButton setTitle:definitionModel.definition forState:UIControlStateNormal];
+        
         self.lockButton.hidden = false;
         self.topBarView.hidden = false;
         self.bottomBarView.hidden = false;
@@ -291,6 +298,10 @@
     }];
     self.lockButton.hidden = !self.lockButton.hidden;
     if (![self isLocked]) {
+        
+        PMVideoDefinitionInfoModel *definitionModel = self.playerManager.currDefinitionInfoModel;
+        [self.rightView.definitionButton setTitle:definitionModel.definition forState:UIControlStateNormal];
+        
         self.topBarView.hidden = self.lockButton.hidden;
         self.bottomBarView.hidden = self.lockButton.hidden;
         self.rightView.hidden = self.lockButton.hidden;

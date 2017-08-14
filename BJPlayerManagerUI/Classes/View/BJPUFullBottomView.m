@@ -21,6 +21,7 @@
         [self addSubview:self.relTimeLabel];
         [self addSubview:self.durationLabel];
         [self addSubview:self.progressView];
+//        self.progressView.backgroundColor = [UIColor redColor];
         [self.playButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.offset(10.f);
             make.centerY.offset(0);
@@ -42,15 +43,32 @@
             make.trailing.offset(-10.f);
             make.centerY.offset(0);
         }];
+        [self.progressView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.relTimeLabel.mas_right).offset(20.f);
+            make.right.equalTo(self.durationLabel.mas_left).offset(-20.f);
+//            make.top.offset(15.f);
+            make.centerY.equalTo(self.relTimeLabel);
+            make.height.mas_equalTo(10.f);
+        }];
     }
     return self;
 }
 
 - (void)layoutSubviews
 {
-    CGFloat x = self.relTimeLabel.frame.origin.x + self.relTimeLabel.frame.size.width + 20;
-    CGFloat width = self.durationLabel.frame.origin.x - 20 - x;
-    self.progressView.frame = CGRectMake(x, 15, width, 10);
+//    CGFloat x = self.relTimeLabel.frame.origin.x + self.relTimeLabel.frame.size.width + 20;
+//    CGFloat width = self.durationLabel.frame.origin.x - 20 - x;
+//    self.progressView.frame = CGRectMake(x, 15, width, 10);
+//    [super layoutSubviews];
+//    [self.progressView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self.relTimeLabel.mas_right).offset(20.f);
+//        make.right.equalTo(self.durationLabel.mas_left).offset(-20.f);
+//        //            make.top.offset(15.f);
+//        make.centerY.equalTo(self.relTimeLabel);
+//        make.height.equalTo(@10);
+//    }];
+
+    
 }
 
 #pragma mark - set get
@@ -85,7 +103,8 @@
 - (BJPUProgressView *)progressView
 {
     if (!_progressView) {
-        _progressView = [[BJPUProgressView alloc] initWithFrame:CGRectMake(-100, 20, 100, 10)];
+//        _progressView = [[BJPUProgressView alloc] initWithFrame:CGRectMake(-100, 20, 100, 10)];
+        _progressView = [[BJPUProgressView alloc] init];
     }
     return _progressView;
 }

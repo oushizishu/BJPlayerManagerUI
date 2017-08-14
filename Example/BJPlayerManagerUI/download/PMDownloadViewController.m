@@ -45,8 +45,9 @@ static NSString *tempArrPath;
     self.taskArrM = [NSMutableArray array];
     
     [self decodeFromLocalFile];
-    self.vidTextField.text = @"6574024";
-    self.tokenTextField.text = @"5chtDTmyMOA3S3PxCaNttaNFBCKRgj0pZMx36gIBwDl4bzEoAcPNiA";
+    
+    self.vidTextField.text = @"129547";
+    self.tokenTextField.text = @"test12345678";
 }
 
 - (void)setupSegment
@@ -83,7 +84,7 @@ static NSString *tempArrPath;
     }
     
     if ([self vid:self.vidTextField.text type:selectedIndex]) {
-        [MBProgressHUD bjp_showMessageThenHide:@"已在下载队列或者已经下载完成" toView:self.view onHide:nil];
+         [MBProgressHUD bjp_showMessageThenHide:@"已在下载队列或者已经下载完成" toView:self.view onHide:nil];
     }
     else {
         PMDownloadModel *model = [PMDownloadModel new];
@@ -99,6 +100,7 @@ static NSString *tempArrPath;
 
 - (IBAction)pauseAll:(id)sender {
     if ([self taskComplete]) {
+//        [MBProgressHUD bjp_showMessageThenHide:@"所有任务已经下载完成, 无法操作" toView:self.view onHide:nil];
     }
     else {
         [[BJDownloadManager manager] pauseAllTask];
@@ -107,6 +109,7 @@ static NSString *tempArrPath;
 
 - (IBAction)resumeAll:(id)sender {
     if ([self taskComplete]) {
+//        [MBProgressHUD bjp_showMessageThenHide:@"所有任务已经下载完成, 无法操作" toView:self.view onHide:nil];
     }
     else {
         [[BJDownloadManager manager] resumeAllTask];
@@ -115,6 +118,7 @@ static NSString *tempArrPath;
 
 - (IBAction)cancelAll:(id)sender {
     if ([self taskComplete]) {
+//        [MBProgressHUD bjp_showMessageThenHide:@"所有任务已经下载完成, 无法操作" toView:self.view onHide:nil];
     }
     else {
         [[BJDownloadManager manager] cancelAllTask];
@@ -135,9 +139,9 @@ static NSString *tempArrPath;
         model.progress = pm_progress;
         model.totalSize = pm_expectedSize;
         model.receiveSize = pm_receivedSize;
-        
+
         [self saveLocal:self.taskArrM];
-        
+
     } state:^(DownloadState pm_state) {
         @YPStrongObj(self);
         if (self.taskArrM.count < 1) {
@@ -264,7 +268,7 @@ static NSString *tempArrPath;
     return tmpArr.count;
 }
 
-#pragma mark -
+#pragma mark - 
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
@@ -273,6 +277,7 @@ static NSString *tempArrPath;
 #pragma mark - tableView
 
 - (void)setupTableView {
+//    self.tableView.backgroundColor = [UIColor lightGrayColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
 //    [self.tableView registerNib:[UINib nibWithNibName:@"PMDownloadTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:kDownloadCell];
@@ -289,9 +294,9 @@ static NSString *tempArrPath;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PMDownloadModel *model = [self.taskArrM objectAtIndex:indexPath.row];
-    
-    //    NSString *cellIdentifier = [NSString stringWithFormat:@"Cell%zd%zd", [indexPath section], [indexPath row]];
-    //    PMDownloadTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+
+//    NSString *cellIdentifier = [NSString stringWithFormat:@"Cell%zd%zd", [indexPath section], [indexPath row]];
+//    PMDownloadTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     PMDownloadTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if (!cell) {
         cell=[[[NSBundle mainBundle] loadNibNamed:@"PMDownloadTableViewCell" owner:nil options:nil] lastObject];
@@ -308,13 +313,13 @@ static NSString *tempArrPath;
     }
     
     [cell setValueWithModel:model];
-    
+
     @YPWeakObj(self);
     cell.pauseBlock = cell.pauseBlock ?: ^(PMDownloadTableViewCell *cel) {
         @YPStrongObj(self);
         NSIndexPath *indexP = [self.tableView indexPathForCell:cel];
         PMDownloadModel *mod = [self.taskArrM objectAtIndex:indexP.row];
-        
+
         if (([self stateWithString:cel.stateLabel.text] == -1) || ([self stateWithString:cell.stateLabel.text] == 3) ||  ([self stateWithString:cell.stateLabel.text] == 4) ) {
             [self downloadWith:mod.vid token:mod.token defintype:mod.definitionType cell:cell];
         }
@@ -333,7 +338,10 @@ static NSString *tempArrPath;
         [[BJDownloadManager manager] cancel:mod.vid definitionType:mod.definitionType];
         [self.taskArrM removeObject:mod];
         [self saveLocal:self.taskArrM];
+//        [self.tableView deselectRowAtIndexPath:indexP animated:NO];
         [tableView deleteRowsAtIndexPaths:@[indexP] withRowAnimation:UITableViewRowAnimationAutomatic];
+//        [cel.pause setTitle:@"重试" forState:UIControlStateNormal];
+//        [MBProgressHUD bjp_showMessageThenHide:@"任务和缓存文件已删除" toView:self.view onHide:nil];
     };
     
     cell.playBlock = cell.playBlock ?: ^(PMDownloadTableViewCell *cel) {
@@ -341,7 +349,7 @@ static NSString *tempArrPath;
         NSIndexPath *indexP = [self.tableView indexPathForCell:cel];
         PMDownloadModel *mod = [self.taskArrM objectAtIndex:indexP.row];
         NSString *path = [self completedPath:mod.vid type:mod.definitionType];
-        PMLocalViewViewController *vc = [[PMLocalViewViewController alloc] initWithPath:path definitionType:mod.definitionType];
+        PMLocalViewViewController *vc = [[PMLocalViewViewController alloc] initWithPath:path definitionType:model.definitionType];
         [self.navigationController pushViewController:vc animated:YES];
     };
     
@@ -435,6 +443,7 @@ static NSString *tempArrPath;
     NSString *taskKey = [NSString stringWithFormat:@"%@%@_video", vid, definotionStr];
     NSString *fileName = [NSString stringWithFormat:@"%@.mp4", taskKey];
     NSString *comPath = [[BJDownloadManager manager].completedDirectory stringByAppendingPathComponent:fileName];
+//    NSString *downloadingPath = [[BJDownloadManager manager].loadingDirectory stringByAppendingString:fileName];
     if ([[NSFileManager defaultManager] fileExistsAtPath:comPath]) {
         return comPath;
     }
