@@ -1,1 +1,1 @@
-../../../../../BJPlayerManagerUI/Classes/Model/BJPUMacro.h
+../../../BJPlayerManagerUI/BJPlayerManagerUI/Classes/Model/BJPUMacro.h

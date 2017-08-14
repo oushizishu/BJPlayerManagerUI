@@ -9,13 +9,13 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSUInteger, BJPMErrorCode) {
-    BJPMErrorCodeLoading     = 1000,    //加载中
-    BJPMErrorCodeLoadingEnd  = 1001,    //加载完成
-    BJPMErrorCodeParse       = 1002,    //视频解析错误
-    BJPMErrorCodeNetwork     = 1003,    //网络错误, 没有网络或是未知网络
-    BJPMErrorCodeWWAN        = 1004,    //非WIFI环境，这时要暂停，并提示
-    BJPMErrorCodeWIFI        = 1005,    //wifi
-    BJPMErrorCodeServer      = 1006,    //server端返回的错误
+    BJPMErrorCodeLoading = 1000,//加载中
+    BJPMErrorCodeLoadingEnd,    //加载完成
+    BJPMErrorCodeParse,         //视频解析错误
+    BJPMErrorCodeNetwork,       //网络错误
+    BJPMErrorCodeWWAN,          //非WIFI环境，这时要暂停，并提示
+    BJPMErrorCodeWIFI,
+    BJPMErrorCodeServer,        //server端返回的错误
 };
 
 #define BJPMErrorDomain  @"BJPMErrorDomain"

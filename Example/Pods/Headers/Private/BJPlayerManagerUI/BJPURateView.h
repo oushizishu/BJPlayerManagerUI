@@ -1,1 +1,1 @@
-../../../../../BJPlayerManagerUI/Classes/View/BJPURateView.h
+../../../BJPlayerManagerUI/BJPlayerManagerUI/Classes/View/BJPURateView.h

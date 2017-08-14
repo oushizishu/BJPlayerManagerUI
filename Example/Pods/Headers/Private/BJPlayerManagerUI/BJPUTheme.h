@@ -1,1 +1,1 @@
-../../../../../BJPlayerManagerUI/Classes/Theme/BJPUTheme.h
+../../../BJPlayerManagerUI/BJPlayerManagerUI/Classes/Theme/BJPUTheme.h

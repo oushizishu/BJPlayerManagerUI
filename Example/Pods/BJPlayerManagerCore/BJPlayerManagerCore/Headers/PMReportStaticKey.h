@@ -19,11 +19,6 @@ extern NSString * const PMReportKeyType;
 extern NSString * const PMReportKeyGUID;
 
 /*
- * uuid
- */
-extern NSString * const PMReportKeyUUID;
-
-/*
  clientype, 1：iphone 2:ipad 3：Android 4：手机M站 5：PC 网页 6：app M站
  */
 extern NSString * const PMReportKeyClientType;

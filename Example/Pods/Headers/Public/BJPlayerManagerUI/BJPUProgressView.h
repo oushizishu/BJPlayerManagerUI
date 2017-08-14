@@ -1,1 +1,1 @@
-../../../../../BJPlayerManagerUI/Classes/View/BJPUProgressView.h
+../../../BJPlayerManagerUI/BJPlayerManagerUI/Classes/View/BJPUProgressView.h

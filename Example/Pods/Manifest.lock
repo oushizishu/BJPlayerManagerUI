@@ -35,17 +35,13 @@ PODS:
   - YYModel (1.0.4)
 
 DEPENDENCIES:
-  - BJPlayerManagerUI (from `../`)
+  - BJPlayerManagerUI
   - MBProgressHUD
-
-EXTERNAL SOURCES:
-  BJPlayerManagerUI:
-    :path: "../"
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   BJPlayerManagerCore: fd3f7f01c63486437bc506478fd23c1acf74ca6e
-  BJPlayerManagerUI: 2629a11d2ddbf189941c0e372c85f1c30a0dc7fd
+  BJPlayerManagerUI: 9137b8dad11c6c438cfbaf47e44b3ff3e1d14f29
   BJVideoPlayer: 90c78655891ae6aa3a4729ec0f7f31f286d3c9d2
   FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
   LogStat: 7c3dc8b58894749aa37188a88efcbb53f464162e
@@ -53,6 +49,6 @@ SPEC CHECKSUMS:
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 307fc566d2530c4416e9521dc0070475caabe197
+PODFILE CHECKSUM: be81ad0eb1caa722e10d49b12d275d274f8af7a4
 
 COCOAPODS: 1.2.1
