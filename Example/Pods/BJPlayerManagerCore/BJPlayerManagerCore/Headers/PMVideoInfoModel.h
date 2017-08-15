@@ -14,6 +14,16 @@ typedef NS_ENUM(NSInteger, PMVideoDefinitionType){
     DT_LOW      = 0, //标清
     DT_HIGH     = 1, //高清
     DT_SUPPERHD = 2, //超清
+    DT_720p     = 3, //720p
+    DT_1080p    = 4, //1080p
+};
+
+typedef NS_ENUM(NSInteger, PMVideoWatermarkPos){
+    PMVideoWatermarkPos_None      = 0, //不显示
+    PMVideoWatermarkPos_LeftUp    = 1, //左上
+    PMVideoWatermarkPos_RightUp   = 2, //右上
+    PMVideoWatermarkPos_RightDown = 3, //右下
+    PMVideoWatermarkPos_LeftDown  = 4, //左下
 };
 
 #pragma mark - PMVideoCDNInfoModel
@@ -29,6 +39,11 @@ typedef NS_ENUM(NSInteger, PMVideoDefinitionType){
 @property (assign, nonatomic) NSUInteger height;
 @property (assign, nonatomic) NSUInteger weight;
 
+@end
+
+@interface PMDefaultDefinitionInfoModel : NSObject <YYModel>
+@property (strong, nonatomic) NSString *type;
+@property (strong, nonatomic) NSString *name;
 @end
 
 #pragma mark - PMVideoDefinitionInfoModel
@@ -51,6 +66,11 @@ typedef NS_ENUM(NSInteger, PMVideoDefinitionType){
 @property (strong, nonatomic) NSString *endVideo;
 @property (assign, nonatomic) NSUInteger duration;
 @property (assign, nonatomic) NSUInteger reportInterval;
+
+@property (strong, nonatomic) NSString *wartermarkUrl;
+@property (assign, nonatomic) PMVideoWatermarkPos wartermarkPos;
+
 @property (strong, nonatomic) NSArray <__kindof PMVideoDefinitionInfoModel*> *definitionList;
+@property (strong, nonatomic) NSArray <__kindof PMDefaultDefinitionInfoModel*> *defaultDefinitionList;
 @property (strong, nonatomic) NSArray<__kindof PMVideoSectionModel*> *sectionInfoList;
 @end

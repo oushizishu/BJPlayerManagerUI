@@ -1,1 +1,1 @@
-../../../BJPlayerManagerUI/BJPlayerManagerUI/Classes/Util/BJPUAppearance.h
+../../../../../BJPlayerManagerUI/Classes/Util/BJPUAppearance.h

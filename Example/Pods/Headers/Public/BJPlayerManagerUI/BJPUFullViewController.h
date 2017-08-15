@@ -1,1 +1,1 @@
-../../../BJPlayerManagerUI/BJPlayerManagerUI/Classes/ViewController/BJPUFullViewController.h
+../../../../../BJPlayerManagerUI/Classes/ViewController/BJPUFullViewController.h

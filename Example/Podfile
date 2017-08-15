@@ -1,11 +1,11 @@
 
 source 'https://github.com/CocoaPods/Specs.git'
-source 'https://github.com/baijia/specs.git'
+source 'https://github.com/baijia/Specs.git'
 
 #use_frameworks!
 
 target 'BJPlayerManagerUI_Example' do
-  pod 'BJPlayerManagerUI'
+  pod 'BJPlayerManagerUI', :path => '../'
   pod 'MBProgressHUD'
 
   target 'BJPlayerManagerUI_Tests' do

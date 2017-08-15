@@ -1,1 +1,1 @@
-../../../BJPlayerManagerUI/BJPlayerManagerUI/Classes/ViewController/BJPUViewControllerProtocol.h
+../../../../../BJPlayerManagerUI/Classes/ViewController/BJPUViewControllerProtocol.h

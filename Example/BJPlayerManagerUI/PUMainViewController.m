@@ -138,7 +138,7 @@
     if(!_tokenTextField) {
         _tokenTextField = [[UITextField alloc] init];
         _tokenTextField.placeholder = @"token";
-        _tokenTextField.text = @"XuEeKf7gFWY3S3PxCaNttVwQ5J9wa_7zC-Z76fC64wmkrykrfE3AFA";
+        _tokenTextField.text = @"ncWQIhSEZ2k3S3PxCaNttVwQ5J9wa_7zH4RVoMI4fnGCk0tuSnPk-A";
         _tokenTextField.layer.borderColor = [UIColor grayColor].CGColor;
         _tokenTextField.layer.borderWidth = 0.5;
         _tokenTextField.layer.cornerRadius = 5.f;

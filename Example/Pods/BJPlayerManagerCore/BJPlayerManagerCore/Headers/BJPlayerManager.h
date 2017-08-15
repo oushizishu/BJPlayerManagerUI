@@ -152,17 +152,33 @@ NS_ASSUME_NONNULL_BEGIN
 @interface BJPlayerManager (uploadLog)
 
 /**
+ 创建log文件, 会删除已有的logfile
+ */
+- (void)createLogFile;
+
+/**
  上传Debug日志信息
  注意:需要在AFURLResponseSerialization.m，我们在第228行添加"text/html"即可, 如下
  
  self.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", nil];
  
  @param partnerId partnerId
- @param userId userId
+ @param userId 用户ID
+ @param vid 回放的话,填写教室号, 点播的话, 填写视频ID
  @param complete complete description
  */
-- (void)uploadLogWithPartnerId:(NSString *)partnerId userId:(NSString *)userId
+- (void)uploadLogWithPartnerId:(NSString *)partnerId userId:(NSString *)userId vid:(NSString *)vid
                       complete:(void (^)(id  _Nullable responseObject, NSError * _Nullable error))complete;
+
+/**
+ 关闭文件, 停止日志写入
+ */
+- (void)closeLog;
+
+/**
+ 删除Log文件夹
+ */
+- (void)delLogDirectory;
 
 @end
 
