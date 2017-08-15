@@ -5,7 +5,7 @@ source 'https://github.com/baijia/specs.git'
 #use_frameworks!
 
 target 'BJPlayerManagerUI_Example' do
-  pod 'BJPlayerManagerUI', :path => '../'
+  pod 'BJPlayerManagerUI', :path => '../' 
   pod 'MBProgressHUD'
 
   target 'BJPlayerManagerUI_Tests' do
