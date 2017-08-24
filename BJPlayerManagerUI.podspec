@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BJPlayerManagerUI'
-  s.version          = '0.1.5-dylib'
+  s.version          = '0.1.5-dylib03'
   s.summary          = 'BJPlayerManagerUI.'
 
 # This description is used to generate tags and improve search results.
