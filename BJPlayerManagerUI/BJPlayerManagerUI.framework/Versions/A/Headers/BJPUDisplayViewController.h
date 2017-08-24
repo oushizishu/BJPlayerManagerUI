@@ -12,7 +12,7 @@
 #import "BJPUProgressView.h"
 #import "BJPUSliderView.h"
 
-@interface BJPUDisplayViewController : UIViewController
+@interface BJPUDisplayViewController : UIViewController <BJPUSliderProtocol>
 
 @property (weak, nonatomic) id<BJPUViewControllerProtocol> delegate;
 

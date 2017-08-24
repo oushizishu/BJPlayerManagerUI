@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BJPlayerManagerUI'
-  s.version          = '0.1.3-dylib'
+  s.version          = '0.1.5-dylib'
   s.summary          = 'BJPlayerManagerUI.'
 
 # This description is used to generate tags and improve search results.
@@ -37,6 +37,9 @@ TODO: Add long description of the pod here.
   s.ios.source_files         = 'BJPlayerManagerUI/BJPlayerManagerUI.framework/Versions/A/Headers/**/*.h'
   s.ios.resource             = 'BJPlayerManagerUI/BJPlayerManagerUI.framework/Versions/A/Resources/**/*'
   s.ios.vendored_frameworks  = 'BJPlayerManagerUI/BJPlayerManagerUI.framework'
+
+  s.frameworks = ['CoreGraphics', 'Foundation', 'MobileCoreServices', 'Photos', 'UIKit']
+   s.xcconfig = {"ENABLE_BITCODE" => "NO", "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES" => "YES"}
 
   # # library
   # s.source_files = 'BJPlayerManagerUI/Classes/**/*'
