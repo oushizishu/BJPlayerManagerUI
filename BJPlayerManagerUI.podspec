@@ -49,7 +49,7 @@ TODO: Add long description of the pod here.
   
   s.dependency 'MBProgressHUD'
   s.dependency 'Masonry'
-  s.dependency 'BJPlayerManagerCore' , '~> 0.3.0'
+  s.dependency 'BJPlayerManagerCore'
 
   s.prefix_header_contents =
     '#import <Masonry/Masonry.h>',
