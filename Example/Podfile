@@ -6,7 +6,10 @@ source 'https://github.com/baijia/Specs.git'
 
 target 'BJPlayerManagerUI_Example' do
   pod 'BJPlayerManagerUI', :path => '../'
+  pod 'BJPlayerManagerCore', '~>0.5.0'
   pod 'MBProgressHUD'
+  pod 'IQKeyboardManager'
+  pod 'ReactiveObjC'
 
   target 'BJPlayerManagerUI_Tests' do
     inherit! :search_paths

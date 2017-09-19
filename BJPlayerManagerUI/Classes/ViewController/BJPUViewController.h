@@ -18,4 +18,11 @@
 
 - (void)playWithVideoPath:(NSString *)path definitionType:(NSInteger)definitionType;
 
+/**
+ 进度条是否可以拖拽
+ 
+ @param mayDrag mayDrag
+ */
+- (void)sliderMayDrag:(BOOL)mayDrag;
+
 @end

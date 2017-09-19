@@ -16,6 +16,7 @@ typedef NS_ENUM(NSUInteger, BJPMErrorCode) {
     BJPMErrorCodeWWAN        = 1004,    //非WIFI环境，这时要暂停，并提示
     BJPMErrorCodeWIFI        = 1005,    //wifi
     BJPMErrorCodeServer      = 1006,    //server端返回的错误
+    BJPMErrorCodeApp         = 1007,    //app端的错误
 };
 
 #define BJPMErrorDomain  @"BJPMErrorDomain"

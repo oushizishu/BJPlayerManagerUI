@@ -17,6 +17,8 @@
 #define PMLog(...)
 #endif
 
+#define YPWeakObj(objc) autoreleasepool{} __weak typeof(objc) objc##Weak = objc;
+#define YPStrongObj(objc) autoreleasepool{} __strong typeof(objc) objc = objc##Weak;
 
 typedef NS_ENUM(NSUInteger, PMPlayState) {
     PMPlayStatePlaying,

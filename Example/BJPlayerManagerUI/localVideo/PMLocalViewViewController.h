@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PMDownloadModel.h"
 
 @interface PMLocalViewViewController : UIViewController
 

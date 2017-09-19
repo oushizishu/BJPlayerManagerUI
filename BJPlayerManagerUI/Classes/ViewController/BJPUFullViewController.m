@@ -12,7 +12,6 @@
 #import "BJPUDefinitionView.h"
 #import "BJPULessonListView.h"
 #import "BJPURateView.h"
-#import "BJPUFullBottomView.h"
 #import "BJPUFullRightView.h"
 #import "BJPUTheme.h"
 #import "BJPUAppearance.h"
@@ -22,7 +21,7 @@ BJPULessonListViewProtocol, BJPUDefinitionViewProtocol, BJPURateViewProtocol>
 //View
 @property (strong, nonatomic) UIView *topBarView;
 @property (strong, nonatomic) UIButton *lockButton;
-@property (strong, nonatomic) BJPUFullBottomView *bottomBarView;
+@property (strong, nonatomic, readwrite) BJPUFullBottomView *bottomBarView;
 @property (strong, nonatomic) BJPUFullRightView *rightView;
 @property (strong, nonatomic) UIButton *scaleButton;
 
@@ -43,7 +42,7 @@ BJPULessonListViewProtocol, BJPUDefinitionViewProtocol, BJPURateViewProtocol>
 {
     [super viewDidLoad];
     
-    [self setupSubviews];
+//    [self setupSubviews];
     [self restartHiddenTimer];
     [self registeAction];
 }

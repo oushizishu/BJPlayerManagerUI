@@ -21,7 +21,7 @@
 @property (strong, nonatomic) UIButton *scaleButton;
 @property (strong, nonatomic) UILabel *relTimeLabel;
 @property (strong, nonatomic) UILabel *durationLabel;
-@property (strong, nonatomic) BJPUProgressView *progressView;
+@property (strong, nonatomic, readwrite) BJPUProgressView *progressView;
 
 @end
 
@@ -35,13 +35,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self setupSubViews];
-    
+//    [self setupSubViews];
     [self.bottomView addObserver:self forKeyPath:@"hidden" options:NSKeyValueObservingOptionNew context:nil];
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapView:)];
-    tap.delegate = self;
-    [self.sliderView addGestureRecognizer:tap];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -109,6 +104,12 @@
     }];
     [self.view setNeedsLayout];
     [self.view layoutIfNeeded];
+    
+//    [self.bottomView addObserver:self forKeyPath:@"hidden" options:NSKeyValueObservingOptionNew context:nil];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapView:)];
+    tap.delegate = self;
+    [self.sliderView addGestureRecognizer:tap];
 }
 
 - (void)restartHiddenTimer

@@ -14,29 +14,49 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - BJPlayerManagerCore (0.4.0):
+  - ASIHTTPRequest (1.8.2):
+    - ASIHTTPRequest/ASIWebPageRequest (= 1.8.2)
+    - ASIHTTPRequest/CloudFiles (= 1.8.2)
+    - ASIHTTPRequest/Core (= 1.8.2)
+    - ASIHTTPRequest/S3 (= 1.8.2)
+  - ASIHTTPRequest/ASIWebPageRequest (1.8.2):
+    - ASIHTTPRequest/Core
+  - ASIHTTPRequest/CloudFiles (1.8.2):
+    - ASIHTTPRequest/Core
+  - ASIHTTPRequest/Core (1.8.2):
+    - Reachability
+  - ASIHTTPRequest/S3 (1.8.2):
+    - ASIHTTPRequest/Core
+  - BJPlayerManagerCore (0.5.3):
     - AFNetworking
+    - ASIHTTPRequest
     - BJVideoPlayer
     - LogStat
     - YYModel
-  - BJPlayerManagerUI (0.1.5):
-    - BJPlayerManagerCore (~> 0.4.0)
+  - BJPlayerManagerUI (0.1.7):
+    - BJPlayerManagerCore
     - Masonry
     - MBProgressHUD
-  - BJVideoPlayer (0.0.21)
+  - BJVideoPlayer (0.0.22)
   - FMDB (2.7.2):
     - FMDB/standard (= 2.7.2)
   - FMDB/standard (2.7.2)
+  - IQKeyboardManager (4.0.13)
   - LogStat (0.7.0):
     - AFNetworking
     - FMDB
   - Masonry (1.0.2)
   - MBProgressHUD (1.0.0)
+  - Reachability (3.2)
+  - ReactiveObjC (3.0.0)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
+  - BJPlayerManagerCore (~> 0.5.0)
   - BJPlayerManagerUI (from `../`)
+  - IQKeyboardManager
   - MBProgressHUD
+  - ReactiveObjC
 
 EXTERNAL SOURCES:
   BJPlayerManagerUI:
@@ -44,15 +64,19 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  BJPlayerManagerCore: fd3f7f01c63486437bc506478fd23c1acf74ca6e
-  BJPlayerManagerUI: 2629a11d2ddbf189941c0e372c85f1c30a0dc7fd
-  BJVideoPlayer: 90c78655891ae6aa3a4729ec0f7f31f286d3c9d2
+  ASIHTTPRequest: ec013992946676b7978dcbde6396d57312d21db4
+  BJPlayerManagerCore: d59f49c2aecfc6a533e468d3b452b39546449ecd
+  BJPlayerManagerUI: 86fb909edad4828d9194f9503e1473769ecff2b0
+  BJVideoPlayer: 279aff5463da197b61d6b2ab0c9b7491af237fea
   FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
+  IQKeyboardManager: 8eab4d8111418414619d1df8e4779ce5d0f8d7e2
   LogStat: 7c3dc8b58894749aa37188a88efcbb53f464162e
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  ReactiveObjC: ce79989e8684b9086b5f8d0c74bc7b81a8729c9e
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 82f45f43c7c99697a6ca328fb4e5679a7ee759be
+PODFILE CHECKSUM: 90755ae4bfe082afe45bea0fecccd03f56e9a538
 
 COCOAPODS: 1.2.1

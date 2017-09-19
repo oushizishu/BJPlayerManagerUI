@@ -11,6 +11,7 @@
 #import "PMVideoInfoModel.h"
 #import "BJPMProtocol.h"
 #import "PMPlayerMacro.h"
+#import "PMADPlayerView.h"
 
 @protocol BJPMControlProtocol;
 
@@ -24,6 +25,11 @@ NS_ASSUME_NONNULL_BEGIN
  存放用户自定义消息
  */
 @property (nonatomic, strong, nullable) NSString *userInfo;
+
+/**
+ adView
+ */
+@property (nonatomic, nullable) PMADPlayerView *adPlayerView;
 
 /**
  播放本地视频
@@ -79,9 +85,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)setURL:(NSString *)url
        classId:(NSString *)classId
+     sessionId:(nullable NSString *)sessionId
     modelClass:(NSString *)modelClass
          token:(NSString *)token
      completed:(void(^) (id x))completed;
+
+
+/**
+ 回放定制接口
+
+ @param classId classId
+ @param sessionId sessionId
+ @param token token
+ @param completion completion
+ */
+- (void)getPlaybackInfoWithClassId:(NSString *)classId
+                         sessionId:(nullable NSString *)sessionId
+                             token:(NSString *)token
+                        completion:(void (^)(PMVideoInfoModel  * _Nullable videoInfo, NSError  * _Nullable error))completion;
 
 /**
  切换到激活状态
@@ -93,7 +114,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)becomeBackground;
 
+/**
+ 重置水印
+ 
+ 外界当屏幕变化的时候可以重置水印,内部会判断当前食品是否有水印
+ */
+- (void)resetWaterMark;
+
 @end
+
+#pragma mark - playInfo
 
 @interface BJPlayerManager (playInfo)
 
@@ -149,6 +179,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+#pragma mark - uploadLog
 @interface BJPlayerManager (uploadLog)
 
 /**
@@ -182,6 +213,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+#pragma mark - playerAD
+
+@interface BJPlayerManager (playerAD)
+
+- (void)setupADPlayerViewWithADModel:(PMVideoADInfoModel *)adModel isHeaderAD:(BOOL)isHeaderAD;
+
+@end
+
+#pragma mark - protocol
+
 @protocol BJPMControlProtocol <NSObject>
 
 - (void)play;
@@ -202,6 +243,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)changeDefinition:(PMVideoDefinitionType)dt;
 
 @end
+
+#pragma mark - Deprecated
 
 @interface BJPlayerManager (Deprecated)
 

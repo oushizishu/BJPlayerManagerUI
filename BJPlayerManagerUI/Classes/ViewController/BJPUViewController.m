@@ -12,9 +12,6 @@
 #import "BJPUMacro.h"
 #import <BJPlayerManagerCore/BJPlayerManagerCore.h>
 
-#define YPWeakObj(o) autoreleasepool{} __weak typeof(o) o##Weak = o;
-#define YPStrongObj(o) autoreleasepool{} __strong typeof(o) o = o##Weak;
-
 @interface BJPUViewController () <BJPUViewControllerProtocol, BJPMProtocol>
 
 @property (strong, nonatomic) BJPUSmallViewController *smallVC;
@@ -48,6 +45,8 @@
                                                  name:UIDeviceOrientationDidChangeNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerPlayStateChanged:)
                                                  name:PMPlayStateChangeNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willPlayNormal:)
+                                                 name:PMPlayerWillPlayNotification object:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -56,6 +55,14 @@
     
     [self.updateDurationTimer invalidate];
     self.updateDurationTimer = nil;
+}
+
+- (void)sliderMayDrag:(BOOL)mayDrag {
+    self.smallVC.progressView.userInteractionEnabled = mayDrag;
+    self.fullVC.bottomBarView.progressView.userInteractionEnabled = mayDrag;
+    
+    self.smallVC.sliderView.userInteractionEnabled = mayDrag;
+    self.fullVC.sliderView.userInteractionEnabled = mayDrag;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,18 +74,18 @@
 {
     self.view.backgroundColor = [UIColor blackColor];
     [self.view addSubview:self.playerManager.player.view];
-    [self.view addSubview:self.fullVC.view];
-    [self.view addSubview:self.smallVC.view];
-    
     [self.playerManager.player.view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.offset(0);
     }];
-    [self.fullVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.offset(0);
-    }];
-    [self.smallVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.offset(0);
-    }];
+//    [self.view addSubview:self.fullVC.view];
+//    [self.view addSubview:self.smallVC.view];
+//    
+//    [self.fullVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.offset(0);
+//    }];
+//    [self.smallVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.offset(0);
+//    }];
 }
 
 #pragma mark - process notification
@@ -137,6 +144,22 @@
     long total = _playerManager.duration;
     [self.smallVC updateCurrentPlayDuration:curr playableDuration:cache totalDuration:total];
     [self.fullVC updateCurrentPlayDuration:curr playableDuration:cache totalDuration:total];
+}
+
+- (void)willPlayNormal:(NSNotification *)noti {
+    
+    [self.view addSubview:self.fullVC.view];
+    [self.view addSubview:self.smallVC.view];
+    
+    [self.fullVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.offset(0);
+    }];
+    [self.smallVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.offset(0);
+    }];
+
+    [self.fullVC setupSubviews];
+    [self.smallVC setupSubViews];
 }
 
 #pragma mark - public interface

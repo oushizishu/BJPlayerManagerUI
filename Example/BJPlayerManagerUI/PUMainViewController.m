@@ -12,7 +12,7 @@
 #import <BJPlayerManagerCore/BJPlayerManagerCore.h>
 #import <Masonry/Masonry.h>
 #import "PUPlayViewController.h"
-#import "PMDownloadViewController.h"
+#import "PUDownloadViewController.h"
 
 #import "UIAlertView+bjp.h"
 
@@ -22,10 +22,10 @@
 @property (strong, nonatomic) UITextField *tokenTextField;
 @property (strong, nonatomic) UIButton *playButton;
 @property (strong, nonatomic) UIButton *downloadBtn;
-@property (strong, nonatomic) UILabel *adLabel;
+@property (strong, nonatomic) UILabel *adLabel, *sliderLabel;
 //yes: 有片头片尾,另外还需要后台配置url才会有片头片尾, 如果没有配置, 就算adSwitch.on = yes, 也没有片头片尾
 //no: 没有广告
-@property (strong, nonatomic) UISwitch *adSwitch;
+@property (strong, nonatomic) UISwitch *adSwitch, *sliderSwitch;
 
 @property (strong, nonatomic) UIScrollView *scrollView;
 @property (strong, nonatomic) UIView *contentView;
@@ -50,6 +50,8 @@
     [self.contentView addSubview:self.tokenTextField];
     [self.contentView addSubview:self.adLabel];
     [self.contentView addSubview:self.adSwitch];
+    [self.contentView addSubview:self.sliderLabel];
+    [self.contentView addSubview:self.sliderSwitch];
     [self.contentView addSubview:self.playButton];
     [self.contentView addSubview:self.downloadBtn];
     [self makeConstraints];
@@ -75,12 +77,13 @@
     NSString *vid = self.vidTextField.text;
     NSString *token = self.tokenTextField.text;
     BOOL isNeedAD = self.adSwitch.on;
-    PUPlayViewController *playerVC = [[PUPlayViewController alloc] initWithVid:vid token:token isNeedAD:isNeedAD];
+    BOOL mayDrag = self.sliderSwitch.on;
+    PUPlayViewController *playerVC = [[PUPlayViewController alloc] initWithVid:vid token:token isNeedAD:isNeedAD mayDrag:mayDrag];
     [self.navigationController pushViewController:playerVC animated:YES];
 }
 
 - (void)downloadAction {
-    PMDownloadViewController *downloadVC = [PMDownloadViewController new];
+    PUDownloadViewController *downloadVC = [PUDownloadViewController new];
     [self.navigationController pushViewController:downloadVC animated:YES];
 }
 
@@ -125,7 +128,7 @@
     if(!_vidTextField) {
         _vidTextField = [[UITextField alloc] init];
         _vidTextField.placeholder = @"vid";
-        _vidTextField.text =  @"7029660";
+        _vidTextField.text =  @"134000";
         _vidTextField.layer.borderColor = [UIColor grayColor].CGColor;
         _vidTextField.layer.borderWidth = 0.5;
         _vidTextField.layer.cornerRadius = 5.f;
@@ -138,7 +141,7 @@
     if(!_tokenTextField) {
         _tokenTextField = [[UITextField alloc] init];
         _tokenTextField.placeholder = @"token";
-        _tokenTextField.text = @"ncWQIhSEZ2k3S3PxCaNttVwQ5J9wa_7zH4RVoMI4fnGCk0tuSnPk-A";
+        _tokenTextField.text = @"test12345678";
         _tokenTextField.layer.borderColor = [UIColor grayColor].CGColor;
         _tokenTextField.layer.borderWidth = 0.5;
         _tokenTextField.layer.cornerRadius = 5.f;
@@ -151,9 +154,21 @@
         _adLabel = [UILabel new];
         _adLabel.text = @"是否有片头片尾广告: ";
         _adLabel.layer.borderColor = [UIColor blackColor].CGColor;
+        _adLabel.layer.cornerRadius = 3.f;
         _adLabel.layer.borderWidth = 0.5;
     }
     return _adLabel;
+}
+
+- (UILabel *)sliderLabel {
+    if (!_sliderLabel) {
+        _sliderLabel = [UILabel new];
+        _sliderLabel.text = @"能否拖拽进度条: ";
+        _sliderLabel.layer.borderColor = [UIColor blackColor].CGColor;
+        _sliderLabel.layer.cornerRadius = 3.f;
+        _sliderLabel.layer.borderWidth = 0.5;
+    }
+    return _sliderLabel;
 }
 
 - (UISwitch *)adSwitch {
@@ -161,6 +176,14 @@
         _adSwitch = [[UISwitch alloc] init];
     }
     return _adSwitch;
+}
+
+- (UISwitch *)sliderSwitch {
+    if (!_sliderSwitch) {
+        _sliderSwitch = [[UISwitch alloc] init];
+        _sliderSwitch.on = YES;
+    }
+    return _sliderSwitch;
 }
 
 - (UIButton *)playButton
@@ -235,10 +258,21 @@
         make.top.bottom.equalTo(self.adLabel);
     }];
     
+    [self.sliderLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.vidTextField);
+        make.height.equalTo(@30);
+        make.width.equalTo(@180);
+        make.top.equalTo(self.adLabel.mas_bottom).offset(30);
+    }];
+    [self.sliderSwitch mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.sliderLabel.mas_right).offset(20);
+        make.top.bottom.equalTo(self.sliderLabel);
+    }];
+    
     [self.playButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@30);
         make.left.right.equalTo(self.vidTextField);
-        make.top.equalTo(self.adLabel.mas_bottom).offset(30);
+        make.top.equalTo(self.sliderLabel.mas_bottom).offset(30);
     }];
     
     [self.downloadBtn mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -6,6 +6,7 @@
 //  Copyright (c) 2017 oushizishu. All rights reserved.
 //
 
+#import <IQKeyboardManager/IQKeyboardManager.h>
 #import "PUAppDelegate.h"
 #import "PUMainViewController.h"
 
@@ -18,6 +19,14 @@
     UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = navi;
     [self.window makeKeyAndVisible];
+    
+    IQKeyboardManager *keyboardManager = [IQKeyboardManager sharedManager];
+    keyboardManager.enable = YES;
+    keyboardManager.shouldResignOnTouchOutside = YES;
+    keyboardManager.shouldToolbarUsesTextFieldTintColor = YES;
+    keyboardManager.keyboardDistanceFromTextField = 40;
+    keyboardManager.enableAutoToolbar = NO;
+    
     return YES;
 }
 

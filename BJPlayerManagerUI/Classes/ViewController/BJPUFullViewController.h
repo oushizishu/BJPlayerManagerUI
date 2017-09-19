@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "BJPUDisplayViewController.h"
+#import "BJPUFullBottomView.h"
 
 @interface BJPUFullViewController : BJPUDisplayViewController
 
+@property (nonatomic, readonly) BJPUFullBottomView *bottomBarView;
+
 - (BOOL)isLocked;
+
+- (void)setupSubviews;
+
 
 @end

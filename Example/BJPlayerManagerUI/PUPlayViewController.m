@@ -14,20 +14,21 @@
 @interface PUPlayViewController ()
 @property (strong, nonatomic) NSString *vid;
 @property (strong, nonatomic) NSString *token;
-@property (assign, nonatomic) BOOL isNeedAD;
+@property (assign, nonatomic) BOOL isNeedAD, mayDrag;
 
 @property (strong, nonatomic) BJPUViewController *playerUIVC;
 @end
 
 @implementation PUPlayViewController
 
-- (instancetype)initWithVid:(NSString *)vid token:(NSString *)token isNeedAD:(BOOL)isNeedAD
+- (instancetype)initWithVid:(NSString *)vid token:(NSString *)token isNeedAD:(BOOL)isNeedAD mayDrag:(BOOL)mayDrag
 {
     self = [super init];
     if (self) {
         _vid = vid;
         _token = token;
         _isNeedAD = isNeedAD;
+        _mayDrag = mayDrag;
     }
     return self;
 }
@@ -39,6 +40,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [PMAppConfig sharedInstance].isNeedAD = self.isNeedAD;
     self.playerUIVC = [[BJPUViewController alloc] init];
+    [self.playerUIVC sliderMayDrag:self.mayDrag];
     [self.playerUIVC setSmallScreenFrame:CGRectMake(0, 64, BJPUScreenWidth, BJPUScreenWidth*9/16)];
     [self.view addSubview:self.playerUIVC.view];
     if ([UIDevice currentDevice].orientation == UIDeviceOrientationLandscapeLeft || [UIDevice currentDevice].orientation == UIDeviceOrientationLandscapeRight) {

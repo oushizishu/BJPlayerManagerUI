@@ -11,4 +11,8 @@
 
 @interface BJPUSmallViewController : BJPUDisplayViewController
 
+@property (strong, nonatomic, readonly) BJPUProgressView *progressView;
+
+- (void)setupSubViews;
+
 @end

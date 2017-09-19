@@ -1,0 +1,1 @@
+../../../BJPlayerManagerCore/BJPlayerManagerCore/Headers/BJDownloadDelegate.h

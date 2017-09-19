@@ -10,6 +10,6 @@
 
 @interface PUPlayViewController : UIViewController
 
-- (instancetype)initWithVid:(NSString *)vid token:(NSString *)token isNeedAD:(BOOL)isNeedAD;
+- (instancetype)initWithVid:(NSString *)vid token:(NSString *)token isNeedAD:(BOOL)isNeedAD mayDrag:(BOOL)mayDrag;
 
 @end
