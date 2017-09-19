@@ -128,7 +128,7 @@
     if(!_vidTextField) {
         _vidTextField = [[UITextField alloc] init];
         _vidTextField.placeholder = @"vid";
-        _vidTextField.text =  @"134000";
+        _vidTextField.text =  @"8012263";
         _vidTextField.layer.borderColor = [UIColor grayColor].CGColor;
         _vidTextField.layer.borderWidth = 0.5;
         _vidTextField.layer.cornerRadius = 5.f;
@@ -141,7 +141,7 @@
     if(!_tokenTextField) {
         _tokenTextField = [[UITextField alloc] init];
         _tokenTextField.placeholder = @"token";
-        _tokenTextField.text = @"test12345678";
+        _tokenTextField.text = @"yw2qWMK1J6RANnRULs263Z-vT3I2gBgQgRwOprkfMuGwuJu7wYq9dA";
         _tokenTextField.layer.borderColor = [UIColor grayColor].CGColor;
         _tokenTextField.layer.borderWidth = 0.5;
         _tokenTextField.layer.cornerRadius = 5.f;

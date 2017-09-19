@@ -23,68 +23,109 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="152459" borderStyle="roundedRect" placeholder="vid:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rKe-8R-7bW">
-                    <rect key="frame" x="71" y="88" width="232" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="8012263" borderStyle="roundedRect" placeholder="vid:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rKe-8R-7bW">
+                    <rect key="frame" x="25" y="88" width="325" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="ntm-BD-Q1G"/>
+                    </constraints>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test12345678" borderStyle="roundedRect" placeholder="token:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Omb-s5-RdT">
-                    <rect key="frame" x="71" y="163" width="232" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="yw2qWMK1J6RANnRULs263Z-vT3I2gBgQgRwOprkfMuGwuJu7wYq9dA" borderStyle="roundedRect" placeholder="token:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Omb-s5-RdT">
+                    <rect key="frame" x="25" y="163" width="325" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="fjx-GH-8Eq"/>
+                    </constraints>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QsQ-6P-yUT">
-                    <rect key="frame" x="65" y="246" width="77" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="获取清晰度"/>
-                    <connections>
-                        <action selector="getDefinition:" destination="-1" eventType="touchUpInside" id="Zq7-85-dqA"/>
-                    </connections>
-                </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="owe-dQ-q3L">
-                    <rect key="frame" x="150" y="246" width="153" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="owe-dQ-q3L">
+                    <rect key="frame" x="139" y="246" width="0.0" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="yy5-Y1-P09"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请填写:0-4为标清/高清/超清/720/1080" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hV7-Ed-uzD">
-                    <rect key="frame" x="71" y="318" width="232" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请填写:0-4为标清/高清/超清/720/1080" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hV7-Ed-uzD">
+                    <rect key="frame" x="25" y="318" width="325" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="IvI-pH-1EK"/>
+                    </constraints>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3d-X3-d1v">
-                    <rect key="frame" x="76" y="402" width="54" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3d-X3-d1v">
+                    <rect key="frame" x="65" y="402" width="54" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="EPg-Ba-cQa"/>
+                        <constraint firstAttribute="width" constant="54" id="zZQ-Cw-h55"/>
+                    </constraints>
                     <state key="normal" title="下载"/>
                     <connections>
                         <action selector="download:" destination="-1" eventType="touchUpInside" id="Lgf-zU-Hhp"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6j5-QQ-QKs">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6j5-QQ-QKs">
                     <rect key="frame" x="224" y="402" width="62" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="62" id="N7x-cu-X30"/>
+                        <constraint firstAttribute="height" constant="30" id="TAf-ui-9ez"/>
+                    </constraints>
                     <state key="normal" title="下载管理"/>
                     <connections>
                         <action selector="downloadManager:" destination="-1" eventType="touchUpInside" id="nvQ-0P-N2L"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKG-pr-F5B">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKG-pr-F5B">
                     <rect key="frame" x="72" y="459" width="62" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="5Tf-XP-Z03"/>
+                        <constraint firstAttribute="width" constant="62" id="ykB-Ii-yqy"/>
+                    </constraints>
                     <state key="normal" title="本地视频"/>
                     <connections>
                         <action selector="localVideo:" destination="-1" eventType="touchUpInside" id="u6f-hd-Dn3"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QsQ-6P-yUT">
+                    <rect key="frame" x="42" y="246" width="77" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="77" id="Kqi-Cr-TMY"/>
+                        <constraint firstAttribute="height" constant="30" id="O7O-R0-1A6"/>
+                    </constraints>
+                    <state key="normal" title="获取清晰度"/>
+                    <connections>
+                        <action selector="getDefinition:" destination="-1" eventType="touchUpInside" id="Zq7-85-dqA"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="rKe-8R-7bW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="25" id="1wC-2c-GIv"/>
+                <constraint firstItem="Omb-s5-RdT" firstAttribute="top" secondItem="rKe-8R-7bW" secondAttribute="bottom" constant="45" id="54G-ME-3bO"/>
+                <constraint firstAttribute="trailing" secondItem="hV7-Ed-uzD" secondAttribute="trailing" constant="25" id="6E3-Cj-sjc"/>
+                <constraint firstItem="Omb-s5-RdT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="25" id="7UO-2t-u9h"/>
+                <constraint firstAttribute="trailing" secondItem="6j5-QQ-QKs" secondAttribute="trailing" constant="89" id="9XW-Pv-wB6"/>
+                <constraint firstItem="6j5-QQ-QKs" firstAttribute="top" secondItem="hV7-Ed-uzD" secondAttribute="bottom" constant="54" id="9tv-Ni-ZFN"/>
+                <constraint firstItem="N3d-X3-d1v" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="65" id="DdU-vy-ekg"/>
+                <constraint firstAttribute="trailing" secondItem="Omb-s5-RdT" secondAttribute="trailing" constant="25" id="Ewh-MJ-amO"/>
+                <constraint firstItem="N3d-X3-d1v" firstAttribute="top" secondItem="hV7-Ed-uzD" secondAttribute="bottom" constant="54" id="F3g-y5-h7g"/>
+                <constraint firstItem="rKe-8R-7bW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="88" id="Lul-09-Jcr"/>
+                <constraint firstItem="zKG-pr-F5B" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="72" id="Sgl-FM-8Rt"/>
+                <constraint firstItem="owe-dQ-q3L" firstAttribute="top" secondItem="Omb-s5-RdT" secondAttribute="bottom" constant="53" id="Vxy-h6-Iag"/>
+                <constraint firstItem="QsQ-6P-yUT" firstAttribute="top" secondItem="Omb-s5-RdT" secondAttribute="bottom" constant="53" id="bCS-E4-00B"/>
+                <constraint firstItem="hV7-Ed-uzD" firstAttribute="top" secondItem="QsQ-6P-yUT" secondAttribute="bottom" constant="42" id="bfz-cD-jaM"/>
+                <constraint firstAttribute="trailing" secondItem="rKe-8R-7bW" secondAttribute="trailing" constant="25" id="dFy-o9-8U4"/>
+                <constraint firstItem="owe-dQ-q3L" firstAttribute="leading" secondItem="QsQ-6P-yUT" secondAttribute="trailing" constant="20" id="gry-eJ-nNT"/>
+                <constraint firstItem="QsQ-6P-yUT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="42" id="hIQ-5X-zSG"/>
+                <constraint firstItem="zKG-pr-F5B" firstAttribute="top" secondItem="N3d-X3-d1v" secondAttribute="bottom" constant="27" id="jql-6p-3wb"/>
+                <constraint firstItem="hV7-Ed-uzD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="25" id="pxT-ao-ovZ"/>
+            </constraints>
             <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>
