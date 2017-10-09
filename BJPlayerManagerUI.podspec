@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BJPlayerManagerUI'
-  s.version          = '0.1.7.2'
+  s.version          = '0.1.8'
   s.summary          = 'BJPlayerManagerUI.'
 
 # This description is used to generate tags and improve search results.
@@ -29,31 +29,23 @@ TODO: Add long description of the pod here.
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
+  
+  s.ios.preserve_paths       = 'BJPlayerManagerUI/BJPlayerManagerUI.framework'
+  s.ios.source_files         = 'BJPlayerManagerUI/BJPlayerManagerUI.framework/Versions/A/Headers/**/*.h'
+  s.ios.public_header_files  = 'BJPlayerManagerUI/BJPlayerManagerUI.framework/Versions/A/Headers/**/*.h'
+  s.ios.resource             = 'BJPlayerManagerUI/BJPlayerManagerUI.framework/Versions/A/Resources/**/*'
+  s.ios.vendored_frameworks  = 'BJPlayerManagerUI/BJPlayerManagerUI.framework'
 
-  s.source_files = 'BJPlayerManagerUI/Classes/**/*'
+#  s.source_files = 'BJPlayerManagerUI/Classes/**/*' 
+#   s.resource_bundles = {
+#      'BJPlayerManagerUI' => ['BJPlayerManagerUI/Assets/*.png']
+#   }
   
-  s.resource_bundles = {
-     'BJPlayerManagerUI' => ['BJPlayerManagerUI/Assets/*.png']
-  }
-  
-    s.subspec 'BJPlayerManagerCore' do |ss|
-        ss.xcconfig = { "GCC_PREPROCESSOR_DEFINITIONS" => "$(inherited) PODSPEC_NAME=#{s.name} PODSPEC_VERSION=#{s.version}" }
-        ss.vendored_frameworks = "frameworks/BJPlayerManagerCore.framework"
-        ss.frameworks = ['CoreGraphics', 'Foundation', 'UIKit', 'MediaPlayer', 'CoreTelephony']
-		
-	    ss.dependency "AFNetworking" 
-	    ss.dependency "YYModel"
-	    ss.dependency "LogStat"
-	    ss.dependency 'BJVideoPlayer'
-	    ss.dependency 'ASIHTTPRequest'
-	    ss.dependency 'SDWebImage/GIF'
-	    ss.dependency 'BJLiveBase/Base', '~>1.0.0-alpha'
-	    ss.dependency 'BJLiveBase/Networking', '~>1.0.0-alpha'
-    end
+  s.xcconfig = { "GCC_PREPROCESSOR_DEFINITIONS" => "$(inherited) PODSPEC_NAME=#{s.name} PODSPEC_VERSION=#{s.version}" }
 
   s.dependency 'MBProgressHUD'
   s.dependency 'Masonry'
-#  s.dependency 'BJPlayerManagerCore'
+  s.dependency 'BJPlayerManagerCore'
 
   s.prefix_header_contents =
     '#import <Masonry/Masonry.h>',
