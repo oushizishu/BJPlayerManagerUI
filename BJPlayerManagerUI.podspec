@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BJPlayerManagerUI'
-  s.version          = '0.1.8'
+  s.version          = '0.2.0-beta'
   s.summary          = 'BJPlayerManagerUI.'
 
 # This description is used to generate tags and improve search results.
@@ -41,11 +41,11 @@ TODO: Add long description of the pod here.
 #      'BJPlayerManagerUI' => ['BJPlayerManagerUI/Assets/*.png']
 #   }
   
-  s.xcconfig = { "GCC_PREPROCESSOR_DEFINITIONS" => "$(inherited) PODSPEC_NAME=#{s.name} PODSPEC_VERSION=#{s.version}" }
+#  s.xcconfig = { "GCC_PREPROCESSOR_DEFINITIONS" => "$(inherited) PODSPEC_NAME=#{s.name} PODSPEC_VERSION=#{s.version}" }
 
   s.dependency 'MBProgressHUD'
   s.dependency 'Masonry'
-  s.dependency 'BJPlayerManagerCore'
+  s.dependency 'BJPlayerManagerCore', '~> 0.5.4.1'
 
   s.prefix_header_contents =
     '#import <Masonry/Masonry.h>',
