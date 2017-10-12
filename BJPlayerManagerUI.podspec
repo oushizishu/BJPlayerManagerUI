@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BJPlayerManagerUI'
-  s.version          = '0.2.0-beta'
+  s.version          = '0.2.0-beta02'
   s.summary          = 'BJPlayerManagerUI.'
 
 # This description is used to generate tags and improve search results.
@@ -33,7 +33,7 @@ TODO: Add long description of the pod here.
   s.ios.preserve_paths       = 'BJPlayerManagerUI/BJPlayerManagerUI.framework'
   s.ios.source_files         = 'BJPlayerManagerUI/BJPlayerManagerUI.framework/Versions/A/Headers/**/*.h'
   s.ios.public_header_files  = 'BJPlayerManagerUI/BJPlayerManagerUI.framework/Versions/A/Headers/**/*.h'
-  s.ios.resource             = 'BJPlayerManagerUI/BJPlayerManagerUI.framework/Versions/A/Resources/**/*'
+  s.ios.resource             = 'BJPlayerManagerUI/BJPlayerManagerUI.framework/Resources/**/*'
   s.ios.vendored_frameworks  = 'BJPlayerManagerUI/BJPlayerManagerUI.framework'
 
 #  s.source_files = 'BJPlayerManagerUI/Classes/**/*' 
