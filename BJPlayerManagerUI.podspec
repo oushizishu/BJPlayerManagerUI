@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BJPlayerManagerUI'
-  s.version          = '0.2.0-beta03'
+  s.version          = '1.0.0'
   s.summary          = 'BJPlayerManagerUI.'
 
 # This description is used to generate tags and improve search results.
@@ -30,22 +30,22 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '8.0'
   
-  s.ios.preserve_paths       = 'BJPlayerManagerUI/BJPlayerManagerUI.framework'
-  s.ios.source_files         = 'BJPlayerManagerUI/BJPlayerManagerUI.framework/Versions/A/Headers/**/*.h'
-  s.ios.public_header_files  = 'BJPlayerManagerUI/BJPlayerManagerUI.framework/Versions/A/Headers/**/*.h'
-  s.ios.resource             = 'BJPlayerManagerUI/BJPlayerManagerUI.framework/Versions/A/Resources/BJPlayerManagerUI.bundle'
-  s.ios.vendored_frameworks  = 'BJPlayerManagerUI/BJPlayerManagerUI.framework'
+#  s.ios.preserve_paths       = 'BJPlayerManagerUI/BJPlayerManagerUI.framework'
+#  s.ios.source_files         = 'BJPlayerManagerUI/BJPlayerManagerUI.framework/Versions/A/Headers/**/*.h'
+#  s.ios.public_header_files  = 'BJPlayerManagerUI/BJPlayerManagerUI.framework/Versions/A/Headers/**/*.h'
+#  s.ios.resource             = 'BJPlayerManagerUI/BJPlayerManagerUI.framework/Versions/A/Resources/BJPlayerManagerUI.bundle'
+#  s.ios.vendored_frameworks  = 'BJPlayerManagerUI/BJPlayerManagerUI.framework'
 
-#  s.source_files = 'BJPlayerManagerUI/Classes/**/*' 
-#   s.resource_bundles = {
-#      'BJPlayerManagerUI' => ['BJPlayerManagerUI/Assets/*.png']
-#   }
+  s.source_files = 'BJPlayerManagerUI/Classes/**/*' 
+   s.resource_bundles = {
+      'BJPlayerManagerUI' => ['BJPlayerManagerUI/Assets/*.png']
+   }
   
-#  s.xcconfig = { "GCC_PREPROCESSOR_DEFINITIONS" => "$(inherited) PODSPEC_NAME=#{s.name} PODSPEC_VERSION=#{s.version}" }
+  s.xcconfig = { "GCC_PREPROCESSOR_DEFINITIONS" => "$(inherited) PODSPEC_NAME=#{s.name} PODSPEC_VERSION=#{s.version}" }
 
   s.dependency 'MBProgressHUD'
   s.dependency 'Masonry'
-  s.dependency 'BJPlayerManagerCore', '~> 0.5.4.1'
+  s.dependency 'BJPlayerManagerCore', '~> 1.0.0'
 
   s.prefix_header_contents =
     '#import <Masonry/Masonry.h>',
