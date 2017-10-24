@@ -30,11 +30,11 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '8.0'
   
-  s.ios.preserve_paths       = 'BJPlayerManagerUI/BJPlayerManagerUI.framework'
-  s.ios.source_files         = 'BJPlayerManagerUI/BJPlayerManagerUI.framework/Versions/A/Headers/**/*.h'
-  s.ios.public_header_files  = 'BJPlayerManagerUI/BJPlayerManagerUI.framework/Versions/A/Headers/**/*.h'
-  s.ios.resource             = 'BJPlayerManagerUI/BJPlayerManagerUI.framework/Versions/A/Resources/BJPlayerManagerUI.bundle'
-  s.ios.vendored_frameworks  = 'BJPlayerManagerUI/BJPlayerManagerUI.framework'
+  s.ios.preserve_paths       = 'frameworks/BJPlayerManagerUI.framework'
+  s.ios.source_files         = 'frameworks/BJPlayerManagerUI.framework/Versions/A/Headers/**/*.h'
+  s.ios.public_header_files  = 'frameworks/BJPlayerManagerUI.framework/Versions/A/Headers/**/*.h'
+  s.ios.resource             = 'frameworks/BJPlayerManagerUI.framework/Versions/A/Resources/BJPlayerManagerUI.bundle'
+  s.ios.vendored_frameworks  = 'frameworks/BJPlayerManagerUI.framework'
 
   #s.source_files = 'BJPlayerManagerUI/Classes/**/*' 
   #s.resource_bundles = {
