@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BJPlayerManagerUI'
-  s.version          = '1.1.0'
+  s.version          = '1.2.0'
   s.summary          = 'BJPlayerManagerUI.'
 
 # This description is used to generate tags and improve search results.
@@ -45,7 +45,7 @@ TODO: Add long description of the pod here.
 
   s.dependency 'MBProgressHUD'
   s.dependency 'Masonry'
-  s.dependency 'BJPlayerManagerCore', '~> 1.1.0'
+  s.dependency 'BJPlayerManagerCore', '~> 1.0'
 
   s.prefix_header_contents =
     '#import <Masonry/Masonry.h>',

@@ -6,11 +6,12 @@
 //
 //
 
+#import <BJPlayerManagerCore/BJPlayerManagerCore.h>
 #import "BJPUViewController.h"
 #import "BJPUFullViewController.h"
 #import "BJPUSmallViewController.h"
 #import "BJPUMacro.h"
-#import <BJPlayerManagerCore/BJPlayerManagerCore.h>
+#import "MBProgressHUD+bjp.h"
 
 @interface BJPUViewController () <BJPUViewControllerProtocol, BJPMProtocol>
 
@@ -174,14 +175,22 @@
     BJPlayerManager *player = noti.object;
     if(player != self.playerManager) return;
     self.isPlayingTailAD = YES;
-    self.fullVC.view.hidden = YES;
-    self.smallVC.view.hidden = YES;
+    if (self.screenType == BJPUScreenType_Full) {
+        self.fullVC.view.hidden = YES;
+    }
+    else if (self.screenType == BJPUScreenType_Small) {
+        self.smallVC.view.hidden = YES;
+    }
 }
 
 - (void)tailADPlayFinish:(NSNotification *)noti {
     self.isPlayingTailAD = NO;
-    self.fullVC.view.hidden = NO;
-    self.smallVC.view.hidden = NO;
+    if (self.screenType == BJPUScreenType_Full) {
+        self.fullVC.view.hidden = NO;
+    }
+    else if (self.screenType == BJPUScreenType_Small) {
+        self.smallVC.view.hidden = NO;
+    }
 }
 
 #pragma mark - public interface
@@ -190,7 +199,9 @@
     self.vid = vid;
     self.token = token;
     self.localVideoPath = nil;
-    [self.playerManager setVideoID:vid token:token];
+    [self.playerManager setVideoID:vid token:token completion:^BOOL(PMVideoInfoModel * _Nonnull result, NSError * _Nonnull error) {
+        return NO;
+    }];
 }
 
 - (void)playWithVideoPath:(NSString *)path definitionType:(NSInteger)definitionType
@@ -216,6 +227,7 @@
 #pragma mark - BJPMProtocol
 - (void)videoplayer:(BJPlayerManager *)playerManager throwPlayError:(NSError *)error
 {
+    NSString *errMsg = [error.userInfo objectForKey:NSLocalizedDescriptionKey] ?: @"未知错误";
     if (error.code == BJPMErrorCodeLoading) {
         [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
     } else if (BJPMErrorCodeLoadingEnd == error.code) {
@@ -229,6 +241,8 @@
     } else if (BJPMErrorCodeServer == error.code) {
         
     }
+    NSString *msg = [NSString stringWithFormat:@"错误码:%li \n %@", error.code, errMsg];
+    [MBProgressHUD bjp_showMessageThenHide:msg toView:self.view onHide:nil];
 }
 
 - (void)videoDidFinishPlayInVideoPlayer:(BJPlayerManager *)playerManager {
