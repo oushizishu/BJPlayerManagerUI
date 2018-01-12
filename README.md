@@ -1,33 +1,17 @@
-# BJPlayerManagerUI
+## 迁移
 
-**详情请访问百家云技术文档[iOS点播UI SDK](http://dev.baijiacloud.com/default/wiki/detail/18)**
+- **所有项目现已迁移到 http://git.baijiashilian.com/open-ios/**
 
----
-
-[![CI Status](http://img.shields.io/travis/oushizishu/BJPlayerManagerUI.svg?style=flat)](https://travis-ci.org/oushizishu/BJPlayerManagerUI)
-[![Version](https://img.shields.io/cocoapods/v/BJPlayerManagerUI.svg?style=flat)](http://cocoapods.org/pods/BJPlayerManagerUI)
-[![License](https://img.shields.io/cocoapods/l/BJPlayerManagerUI.svg?style=flat)](http://cocoapods.org/pods/BJPlayerManagerUI)
-[![Platform](https://img.shields.io/cocoapods/p/BJPlayerManagerUI.svg?style=flat)](http://cocoapods.org/pods/BJPlayerManagerUI)
-
-## Example
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-## Requirements
-
-## Installation
-
-BJPlayerManagerUI is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+- **引入 1.0 以上版本 SDK 需要修改 Podfile 中的 source**
 
 ```ruby
-pod "BJPlayerManagerUI"
+source 'https://github.com/CocoaPods/Specs.git'
+source 'http://git.baijiashilian.com/open-ios/specs.git'
 ```
 
-## Author
+- **引入 1.0 以前版本继续保持原有的 Podfile 中的 source**
 
-辛亚鹏, xinyapeng@baijiahulian.com
-
-## License
-
-BJPlayerManagerUI is available under the MIT license. See the LICENSE file for more info.
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/baijia/specs.git'
+```
